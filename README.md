@@ -5,7 +5,7 @@
  
  # Project Proposal
  
- **Name TBD**
+ **Name TBD** \
 TBD Description
 
  
