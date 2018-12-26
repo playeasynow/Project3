@@ -10,10 +10,10 @@ TBD Description
 
  
  # Rough Sketch / Prototype
- 
+ TBD
  
  # Tech Used
-
+TBD
  
  # Tasks and Next Steps
  - Get proposal approved
