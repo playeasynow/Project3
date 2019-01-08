@@ -13,14 +13,14 @@ Guru Match also offers scheduling services to coaches to keep all appointments i
 Main features: questionnaire, matching algorithm, video 1:1 conferencing, calendar and scheduling
  
  # Rough Sketch / Prototype
- ![guru](./GuruMatchHome.png)
- ![guru](./GuruMatchVideo.png)
- ![guru](./GuruMatchCalendar.png)
+ ![guru home](GuruMatchHome.png) \
+ ![guru video](GuruMatchVideo.png) \
+ ![guru calendar](GuruMatchCalendar.png) 
  
  # Tech Used
-To be confirmed
-React
-WebRTC
+To be confirmed \
+React \
+WebRTC \
 Socket.io
  
  # Tasks and Next Steps
