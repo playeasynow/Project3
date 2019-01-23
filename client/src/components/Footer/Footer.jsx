@@ -28,16 +28,16 @@ function Footer({ ...props }) {
           <List className={classes.list}>
             <ListItem className={classes.inlineBlock}>
               <a
-                href="https://www.creative-tim.com/"
+                href="https://www.google.com/"
                 className={classes.block}
                 target="_blank"
               >
-                Creative Tim
+                Guru Match
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
               <a
-                href="https://www.creative-tim.com/presentation"
+                href="https://www.google.com/"
                 className={classes.block}
                 target="_blank"
               >
@@ -46,7 +46,7 @@ function Footer({ ...props }) {
             </ListItem>
             <ListItem className={classes.inlineBlock}>
               <a
-                href="http://blog.creative-tim.com/"
+                href="https://www.google.com/"
                 className={classes.block}
                 target="_blank"
               >
@@ -55,7 +55,7 @@ function Footer({ ...props }) {
             </ListItem>
             <ListItem className={classes.inlineBlock}>
               <a
-                href="https://www.creative-tim.com/license"
+                href="https://www.google.com/"
                 className={classes.block}
                 target="_blank"
               >
@@ -68,11 +68,11 @@ function Footer({ ...props }) {
           &copy; {1900 + new Date().getYear()} , made with{" "}
           <Favorite className={classes.icon} /> by{" "}
           <a
-            href="https://www.creative-tim.com"
+            href="https://www.google.com/"
             className={aClasses}
             target="_blank"
           >
-            Creative Tim
+            Ezequiel and Fed
           </a>{" "}
           for a better web.
         </div>
