@@ -13,9 +13,9 @@ Guru Match also offers scheduling services to coaches to keep all appointments i
 Main features: questionnaire, matching algorithm, video 1:1 conferencing, calendar and scheduling
  
  # Rough Sketch / Prototype
- ![guru home](./GuruMatchHome.png) \
- ![guru video](./GuruMatchVideo.png) \
- ![guru calendar](./GuruMatchCalendar.png) 
+ ![guru home](./images/GuruMatchHome.png) \
+ ![guru video](./images/GuruMatchVideo.png) \
+ ![guru calendar](./images/GuruMatchCalendar.png) 
  
  # Tech Used
 To be confirmed \
