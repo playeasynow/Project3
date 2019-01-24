@@ -15,19 +15,19 @@ import Button from "components/CustomButtons/Button.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
 // sections for this page
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
-// import SectionBasics from "./Sections/SectionBasics.jsx";
-// import SectionNavbars from "./Sections/SectionNavbars.jsx";
-// import SectionTabs from "./Sections/SectionTabs.jsx";
-// import SectionPills from "./Sections/SectionPills.jsx";
-// import SectionNotifications from "./Sections/SectionNotifications.jsx";
-// import SectionTypography from "./Sections/SectionTypography.jsx";
-// import SectionJavascript from "./Sections/SectionJavascript.jsx";
+import SectionBasics from "./Sections/SectionBasics.jsx";
+import SectionNavbars from "./Sections/SectionNavbars.jsx";
+import SectionTabs from "./Sections/SectionTabs.jsx";
+import SectionPills from "./Sections/SectionPills.jsx";
+import SectionNotifications from "./Sections/SectionNotifications.jsx";
+import SectionTypography from "./Sections/SectionTypography.jsx";
+import SectionJavascript from "./Sections/SectionJavascript.jsx";
 import SectionCarousel from "./Sections/SectionCarousel.jsx";
 import SectionCompletedExamples from "./Sections/SectionCompletedExamples.jsx";
 import SectionLogin from "./Sections/SectionLogin.jsx";
 import SectionExamples from "./Sections/SectionExamples.jsx";
-// import SectionDownload from "./Sections/SectionDownload.jsx";
-import { ReactTypeformEmbed } from "react-typeform-embed";
+import SectionDownload from "./Sections/SectionDownload.jsx";
+// import { ReactTypeformEmbed } from "react-typeform-embed";
 
 import componentsStyle from "assets/jss/material-kit-react/views/components.jsx";
 
@@ -61,19 +61,19 @@ class Components extends React.Component {
             </GridContainer>
           </div>
         </Parallax>
-        <div className="container">
+        {/* <div className="container">
           <ReactTypeformEmbed url="https://playeasynow.typeform.com/to/GA1xBQ" />
-        </div>
+        </div> */}
 
         <div className={classNames(classes.main, classes.mainRaised)}>
-          {/* <SectionBasics />
+          <SectionBasics />
           <SectionNavbars />
           <SectionTabs />
           <SectionPills />
           <SectionNotifications />
-          <SectionTypography /> */}
-          {/* <SectionJavascript /> */}
-          {/* <SectionCarousel />
+          <SectionTypography />
+          <SectionJavascript />
+          <SectionCarousel />
           <SectionCompletedExamples />
           <SectionLogin />
           <GridItem md={12} className={classes.textCenter}>
@@ -82,9 +82,9 @@ class Components extends React.Component {
                 View Login Page
               </Button>
             </Link>
-          </GridItem>  */}
+          </GridItem> 
           <SectionExamples />
-          {/* <SectionDownload /> */}
+          <SectionDownload />
         </div>
         <Footer />
       </div>
