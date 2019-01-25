@@ -1,0 +1,32 @@
+body {
+    background-image: url("./colorBlob.png");
+    background-position: 0px 0px;
+
+    animation: animatedBackground 80s linear infinite;
+    -moz-animation: animatedBackground 80s linear infinite;
+    -webkit-animation: animatedBackground 80s linear infinite;
+    -ms-animation: animatedBackground 80s linear infinite;
+    -o-animation: animatedBackground 80s linear infinite;
+}
+
+@keyframes animatedBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: -1750px 0; }
+}
+@-moz-keyframes animatedBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: -1750px 0; }
+}
+@-webkit-keyframes animatedBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: -1750px 0; }
+}
+@-ms-keyframes animatedBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: -1750px 0; }
+}
+@-o-keyframes animatedBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: -1750px 0; }
+}
+
