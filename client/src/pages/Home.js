@@ -62,10 +62,10 @@ class Home extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h1 className="text-center">
+              <h1 className="text-left">
                 <strong><i>Guru Match</i></strong>
               </h1>
-              <h2 className="text-center">find and save a book</h2>
+              <h2 className="text-left">find and save a book</h2>
             </Jumbotron>
           </Col>
           {/* <Col size="md-12">
