@@ -1,13 +1,14 @@
 .jumbotron {
     padding: 100px;
-    background-image: 
+    background: transparent;
+    /* background-image: 
         linear-gradient(
         rgba(0, 0, 0, 0.7), 
         rgba(0, 0, 0, 0.7)), 
         url("https://moorlandsradio.co.uk/wp-content/uploads/2018/08/library-books.jpg");
     background-repeat: no-repeat;
-    background-size: 100%;
-    color:white;
-    background-blend-mode: darken;
-    border-radius: 0;
+    background-size: 100%; */
+    color:black;
+    /* background-blend-mode: darken;
+    border-radius: 0; */
 }

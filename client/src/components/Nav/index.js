@@ -32,33 +32,53 @@ class Nav extends Component {
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-light">
-                <Link className="navbar-brand text-dark" to="/">
-                <h2><i><b>Guru Match</b></i></h2>
-                </Link>
-                <button
-                    onClick={this.toggleNav}
-                    className="navbar-toggler"
-                    data-toggle="collapse"
-                    data-target="#navbarNav"
-                    aria-controls="navbarNav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
+                <div className="container">
+                    <Link className="navbar-brand pt-4 pb-0" to="/">
+                        <h2><i><b>Guru Match</b></i></h2>
+                    </Link>
+                    <button
+                        onClick={this.toggleNav}
+                        className="navbar-toggler"
+                        data-toggle="collapse"
+                        data-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
                     >
                         <span className="navbar-toggler-icon" />
                     </button>
-                    <div className={`${this.state.open ? "" : "collapse "}navbar-collapse navBtn`} id="navbarNav">
-                        <ul className="navbar-item list-unstyled">
+                    <div className={`${this.state.open ? "" : "collapse "}navbar-collapse justify-content-end`}>
+                        <ul className="nav">
                             <li className="nav-item mt-3">
                                 <Link
-                                onClick={this.toggleNav}
-                                className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
-                                to="/saved"
+                                    onClick={this.toggleNav}
+                                    className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
+                                    to="/saved"
                                 >
-                                Saved Books
+                                    How it Works
+                                </Link>
+                            </li>
+                            <li className="nav-item mt-3">
+                                <Link
+                                    onClick={this.toggleNav}
+                                    className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
+                                    to="/saved"
+                                >
+                                    For Coaches
+                                </Link>
+                            </li>
+                            <li className="nav-item mt-3">
+                                <Link
+                                    onClick={this.toggleNav}
+                                    className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
+                                    to="/saved"
+                                >
+                                    Login
                                 </Link>
                             </li>
                         </ul>
                     </div>
+                </div>
             </nav>
 
         );

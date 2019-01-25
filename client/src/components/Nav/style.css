@@ -1,14 +1,9 @@
 .navbar {
     border-radius: 0;
     color: black;
-    /* border-radius: .3rem; */
-    /* padding-top: 0; */
     padding-bottom: 0;
 }
 
-.navBtn {
-    padding-left: 65%;
-}
 a {
     color: black;
 }
