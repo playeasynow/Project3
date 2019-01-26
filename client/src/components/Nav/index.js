@@ -50,13 +50,14 @@ class Nav extends Component {
                     <div className={`${this.state.open ? "" : "collapse "}navbar-collapse justify-content-end`}>
                         <ul className="nav">
                             <li className="nav-item mt-3">
-                                <Link
+                                {/* <Link
                                     onClick={this.toggleNav}
                                     className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
                                     to="/saved"
                                 >
                                     <h4>about</h4>
-                                </Link>
+                                </Link> */}
+                                <a className="nav-link" href="#scroll-example">About</a>
                             </li>
                             <li className="nav-item mt-3">
                                 <Link

@@ -7,8 +7,9 @@ import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 // import { List } from "../components/List";
-import { ReactTypeformEmbed } from "react-typeform-embed";
-// import ExampleWidget from "../components/Typeform";
+// import { ReactTypeformEmbed } from "react-typeform-embed";
+// import Typeform from "../components/Typeform";
+import Calendar from "../components/Calendar";
 import "./style.css";
 
 class Home extends Component {
@@ -54,6 +55,8 @@ class Home extends Component {
     this.getBooks();
   };
 
+  onClick = (value) => alert('Clicked day: ', value);
+
   handleBookSave = id => {
     const book = this.state.books.find(book => book.id === id);
 
@@ -91,6 +94,36 @@ class Home extends Component {
             </Card>
           </Col> */}
         </Row>
+
+        <Row>
+          <Col size="md-12">
+            <Calendar />
+          </Col>
+        </Row>
+
+        <Row>
+          <Col size="md-12">
+            <Jumbotron>
+              <h1 className="text-left mb-4 main-header">
+                <strong><i>Find a coach today. For free.</i></strong>
+              </h1>
+              <h4 className="text-left">personal, professional, executive and wellness coaching</h4>
+            </Jumbotron>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col size="md-12">
+            <Jumbotron>
+              <h1 className="text-left mb-4 main-header" id="scroll-example">
+                <strong><i>Find a coach today. For free.</i></strong>
+              </h1>
+              <h4 className="text-left">personal, professional, executive and wellness coaching</h4>
+            </Jumbotron>
+          </Col>
+        </Row>
+        
+        {/* <Typeform /> */}
         {/* <Row>
           <Col size="md-12">
             <Card title="Results">
@@ -123,7 +156,7 @@ class Home extends Component {
           </Col>
         </Row> */}
         {/* <Footer /> */}
-        <ReactTypeformEmbed url="https://demo.typeform.com/to/njdbt5" />
+        {/* <ReactTypeformEmbed url="https://demo.typeform.com/to/njdbt5" /> */}
 
       </Container>
     );

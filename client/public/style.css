@@ -1,7 +1,6 @@
 body {
     background-image: url("./colorBlob.png");
     background-position: 0px 0px;
-
     animation: animatedBackground 80s linear infinite;
     -moz-animation: animatedBackground 80s linear infinite;
     -webkit-animation: animatedBackground 80s linear infinite;

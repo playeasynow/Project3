@@ -12,7 +12,7 @@ function Form({ q, handleInputChange, handleFormSubmit }) {
                     id="Title"
                     type="text"
                     value={q}
-                    plaeholder="Ready Player One"
+                    plaeholder="What Dreams May Come"
                     name="q"
                     onChange={handleInputChange}
                     required

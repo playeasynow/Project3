@@ -1,12 +1,9 @@
-import React from "react";
-import { ReactTypeformEmbed } from "react-typeform-embed";
+import React from 'react';
+import { ReactTypeformEmbed } from 'react-typeform-embed';
 
-const ExampleWidget = () => {
-  return (
-    <div>
-      <ReactTypeformEmbed popup={false} url="hhttps://playeasynow.typeform.com/to/GA1xBQ" />
-    </div>
-  );
-};
-
-export default ExampleWidget;
+class Typeform extends React.Component {
+  render() {
+    return <ReactTypeformEmbed url="https://playeasynow.typeform.com/to/GA1xBQ" />;
+  }
+}
+export default Typeform;
