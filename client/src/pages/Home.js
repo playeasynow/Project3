@@ -3,10 +3,13 @@ import Jumbotron from "../components/Jumbotron";
 // import Card from "../components/Card";
 // import Form from "../components/Form";
 // import Book from "../components/Book";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 // import { List } from "../components/List";
+import { ReactTypeformEmbed } from "react-typeform-embed";
+// import ExampleWidget from "../components/Typeform";
+import "./style.css";
 
 class Home extends Component {
   state = {
@@ -14,6 +17,15 @@ class Home extends Component {
     q: "",
     message: "Search For A Book To Begin"
   };
+
+  // constructor(props) {
+  //   super(props);
+  //   this.openForm = this.openForm.bind(this);
+  // }
+
+  openForm() {
+    this.typeformEmbed.typeform.open();
+  }
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -62,12 +74,13 @@ class Home extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h1 className="text-left">
-                <strong><i>Guru Match</i></strong>
+              <h1 className="text-left mb-4 main-header">
+                <strong><i>Find a coach today. For free.</i></strong>
               </h1>
-              <h2 className="text-left">find and save a book</h2>
+              <h4 className="text-left">personal, professional, executive and wellness coaching</h4>
             </Jumbotron>
           </Col>
+          
           {/* <Col size="md-12">
             <Card title="Book Search" icon="far fa-book">
               <Form
@@ -109,7 +122,9 @@ class Home extends Component {
             </Card>
           </Col>
         </Row> */}
-        <Footer />
+        {/* <Footer /> */}
+        <ReactTypeformEmbed url="https://demo.typeform.com/to/njdbt5" />
+
       </Container>
     );
   }

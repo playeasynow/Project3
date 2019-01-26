@@ -34,7 +34,7 @@ class Nav extends Component {
             <nav className="navbar navbar-expand-lg navbar-light">
                 <div className="container">
                     <Link className="navbar-brand pt-4 pb-0" to="/">
-                        <h2><i><b>Guru Match</b></i></h2>
+                        <h1><i><b>guru match</b></i></h1>
                     </Link>
                     <button
                         onClick={this.toggleNav}
@@ -55,7 +55,7 @@ class Nav extends Component {
                                     className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
                                     to="/saved"
                                 >
-                                    How it Works
+                                    <h4>about</h4>
                                 </Link>
                             </li>
                             <li className="nav-item mt-3">
@@ -64,7 +64,7 @@ class Nav extends Component {
                                     className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
                                     to="/saved"
                                 >
-                                    For Coaches
+                                    <h4>for coaches</h4>
                                 </Link>
                             </li>
                             <li className="nav-item mt-3">
@@ -73,7 +73,7 @@ class Nav extends Component {
                                     className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
                                     to="/saved"
                                 >
-                                    Login
+                                    <h4>login</h4>
                                 </Link>
                             </li>
                         </ul>
