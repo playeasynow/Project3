@@ -2,3 +2,25 @@
     font-size: 3.5rem;
     padding-left: 0;
 }
+
+.typeform-widget {
+    display: block;
+    position: relative;
+    height: 400px;
+}
+
+.row {
+    height: 100vh;
+    border: 1px solid black;
+}
+
+.next-page {
+    position: absolute;
+    top: 80vh;
+    right: 60vh;
+    /* left: 50vh; */
+}
+
+.column-style {
+    position: relative;
+}

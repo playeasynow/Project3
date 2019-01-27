@@ -4,12 +4,14 @@ import Jumbotron from "../components/Jumbotron";
 // import Form from "../components/Form";
 // import Book from "../components/Book";
 // import Footer from "../components/Footer";
-import API from "../utils/API";
+// import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 // import { List } from "../components/List";
 // import { ReactTypeformEmbed } from "react-typeform-embed";
-// import Typeform from "../components/Typeform";
+import Typeform from "../components/Typeform";
 import Calendar from "../components/Calendar";
+import axios from "axios";
+import scrollToComponent from 'react-scroll-to-component';
 import "./style.css";
 
 class Home extends Component {
@@ -19,10 +21,20 @@ class Home extends Component {
     message: "Search For A Book To Begin"
   };
 
-  // constructor(props) {
-  //   super(props);
-  //   this.openForm = this.openForm.bind(this);
-  // }
+  constructor(props) {
+    super(props);
+    this.openForm = this.openForm.bind(this);
+    this.scrollToTopWithCallback = this.scrollToTopWithCallback.bind(this)
+  }
+
+  componentDidMount() {
+    scrollToComponent(this.Top, { offset: 0, align: 'middle', duration: 500, ease:'inCirc'});
+  }
+
+  scrollToTopWithCallback() {
+    let scroller = scrollToComponent(this.Top, { offset: -200, align: 'top', duration: 1500});
+    scroller.on('end', () => console.log('Scrolling end!') );
+  }
 
   openForm() {
     this.typeformEmbed.typeform.open();
@@ -35,41 +47,31 @@ class Home extends Component {
     });
   };
 
-  getBooks = () => {
-    API.getBooks(this.state.q)
-      .then(res =>
-        this.setState({
-          books: res.data
-        })
-      )
-      .catch(() =>
-        this.setState({
-          books: [],
-          message: "No New Books Found, Try a Different Query"
-        })
-      );
-  };
-
   handleFormSubmit = event => {
     event.preventDefault();
     this.getBooks();
   };
 
+  callBackend = () => {
+    axios.get('https://project3-go-server.herokuapp.com/newuser')
+      .then(function (response) {
+        // handle success
+        console.log(response);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+  }
+
+  onBtnClick = event => {
+    event.preventDefault();
+    this.callBackend();
+  }
   onClick = (value) => alert('Clicked day: ', value);
-
-  handleBookSave = id => {
-    const book = this.state.books.find(book => book.id === id);
-
-    API.saveBook({
-      googleId: book.id,
-      title: book.volumeInfo.title,
-      subtitle: book.volumeInfo.subtitle,
-      link: book.volumeInfo.infoLink,
-      authors: book.volumeInfo.authors,
-      description: book.volumeInfo.description,
-      image: book.volumeInfo.imageLinks.thumbnail
-    }).then(() => this.getBooks());
-  };
 
   render() {
     return (
@@ -77,86 +79,43 @@ class Home extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h1 className="text-left mb-4 main-header">
+              <h1 className="text-left mb-4 main-header" ref={(section) => { this.Top = section; }}>
                 <strong><i>Find a coach today. For free.</i></strong>
               </h1>
               <h4 className="text-left">personal, professional, executive and wellness coaching</h4>
             </Jumbotron>
+            <button className="btn btn-primary next-page animated infinite pulse" onClick={() => scrollToComponent(this.One, { offset: 0, align: 'top', duration: 300, ease:'inQuad'})}>Go To One</button>
+            <button onClick={() => scrollToComponent(this.Three, { offset: 0, align: 'top', duration: 300, ease:'inQuad'})}>Go To Bottom</button>
           </Col>
-          
-          {/* <Col size="md-12">
-            <Card title="Book Search" icon="far fa-book">
-              <Form
-                handleInputChange={this.handleInputChange}
-                handleFormSubmit={this.handleFormSubmit}
-                q={this.state.q}
-              />
-            </Card>
-          </Col> */}
         </Row>
 
         <Row>
           <Col size="md-12">
+            <h1 ref={(section) => { this.One = section; }}>1</h1>
             <Calendar />
+            <button onClick={() => scrollToComponent(this.Two, { offset: 0, align: 'top', duration: 300, ease:'inQuad'})}>Go To Two</button>
           </Col>
         </Row>
 
         <Row>
           <Col size="md-12">
-            <Jumbotron>
-              <h1 className="text-left mb-4 main-header">
-                <strong><i>Find a coach today. For free.</i></strong>
-              </h1>
-              <h4 className="text-left">personal, professional, executive and wellness coaching</h4>
-            </Jumbotron>
+          <h1 ref={(section) => { this.Two = section; }}>2</h1>
+            <button
+              className="btn btn-primary"
+              onClick={this.onBtnClick}>
+              Backend
+            </button>
+            <button onClick={() => scrollToComponent(this.Three, { offset: 0, align: 'top', duration: 300, ease:'inQuad'})}>Go To Three</button>
           </Col>
         </Row>
 
         <Row>
           <Col size="md-12">
-            <Jumbotron>
-              <h1 className="text-left mb-4 main-header" id="scroll-example">
-                <strong><i>Find a coach today. For free.</i></strong>
-              </h1>
-              <h4 className="text-left">personal, professional, executive and wellness coaching</h4>
-            </Jumbotron>
+          <h1 ref={(section) => { this.Three = section; }}>3</h1>
+          <button onClick={this.scrollToTopWithCallback}>Go to Top</button>
+            <Typeform />
           </Col>
         </Row>
-        
-        {/* <Typeform /> */}
-        {/* <Row>
-          <Col size="md-12">
-            <Card title="Results">
-              {this.state.books.length ? (
-                <List>
-                  {this.state.books.map(book => (
-                    <Book
-                      key={book.id}
-                      title={book.volumeInfo.title}
-                      subtitle={book.volumeInfo.subtitle}
-                      link={book.volumeInfo.infoLink}
-                      authors={book.volumeInfo.authors.join(", ")}
-                      description={book.volumeInfo.description}
-                      image={book.volumeInfo.imageLinks.thumbnail}
-                      Button={() => (
-                        <button
-                          onClick={() => this.handleBookSave(book.id)}
-                          className="btn btn-primary ml-2"
-                        >
-                          Save
-                        </button>
-                      )}
-                    />
-                  ))}
-                </List>
-              ) : (
-                <h2 className="text-center">{this.state.message}</h2>
-              )}
-            </Card>
-          </Col>
-        </Row> */}
-        {/* <Footer /> */}
-        {/* <ReactTypeformEmbed url="https://demo.typeform.com/to/njdbt5" /> */}
 
       </Container>
     );

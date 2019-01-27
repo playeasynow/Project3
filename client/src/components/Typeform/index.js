@@ -1,9 +1,37 @@
 import React from 'react';
 import { ReactTypeformEmbed } from 'react-typeform-embed';
 
-class Typeform extends React.Component {
+class TypeformWidget extends React.Component {
+  constructor(props) {
+    super(props);
+    this.openForm = this.openForm.bind(this);
+  }
+
+  openForm() {
+    this.typeformEmbed.typeform.open();
+  }
+
   render() {
-    return <ReactTypeformEmbed url="https://playeasynow.typeform.com/to/GA1xBQ" />;
+    return (
+      <div className="ExamplePopup">
+        <ReactTypeformEmbed
+          popup
+          autoOpen={false}
+          url="https://gurumatch.typeform.com/to/GA1xBQ"
+          hideHeaders
+          hideFooter
+          buttonText="Go!"
+          style={{ top: 100 }}
+          ref={tf => {
+            this.typeformEmbed = tf;
+          }}
+        />
+        <button className="btn btn-primary" onClick={this.openForm} style={{ cursor: 'pointer' }}>
+          Click to open the popup!
+        </button>
+      </div>
+    );
   }
 }
-export default Typeform;
+
+export default TypeformWidget;
