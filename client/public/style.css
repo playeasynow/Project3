@@ -1,8 +1,9 @@
 body {
+    /* background-color: #eeeff1; */
     background-image: url("./colorBlob.png");
-    background-position: 0px 0px;
-    background-repeat: repeat;
-    background-position: bottom;
+    /* background-position: 0px 0px; */
+    /* background-repeat: repeat; */
+    /* background-position: bottom; */
     animation: animatedBackground 400s linear infinite;
     -moz-animation: animatedBackground 400s linear infinite;
     -webkit-animation: animatedBackground 400s linear infinite;

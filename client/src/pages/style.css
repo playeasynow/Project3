@@ -1,3 +1,11 @@
+/* .main-header {
+    background-image: url("../images/colorBlob.png");
+    height: 100vh;
+    background-size: 100% 100%;
+    width: auto;
+    /* background-size: 170vh; 
+}*/
+
 .main-header {
     font-size: 3.5rem;
     padding-left: 0;
@@ -11,13 +19,14 @@
 
 .row {
     height: 100vh;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .next-page {
     position: absolute;
     top: 80vh;
     right: 60vh;
+    cursor: pointer;
     /* left: 50vh; */
 }
 
