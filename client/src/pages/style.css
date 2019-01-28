@@ -25,11 +25,34 @@
 .next-page {
     position: absolute;
     top: 80vh;
-    right: 60vh;
+    right: 95vh;
     cursor: pointer;
     /* left: 50vh; */
 }
 
 .column-style {
     position: relative;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#first-row {
+    background-image: url("../images/colorBlob.png");
+    background-size: cover;
+    height: 90vh;
+}
+
+#second-row {
+    background-color: white;
+    height: 100vh;
+}
+
+#third-row {
+    background-color: burlywood;
+    height: 100vh;
+}
+
+#fourth-row {
+    background-color: bisque;
+    height: 100vh;
 }

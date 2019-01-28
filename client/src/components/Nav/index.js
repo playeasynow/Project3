@@ -31,7 +31,7 @@ class Nav extends Component {
 
     render() {
         return (
-            <nav className="navbar navbar-expand-lg navbar-light">
+            <nav className="navbar sticky-top navbar-expand-lg navbar-light">
                 <div className="container">
                     <Link className="navbar-brand pt-4 pb-0" to="/">
                         <h1><i><b>guru match</b></i></h1>

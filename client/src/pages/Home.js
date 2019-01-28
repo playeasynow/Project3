@@ -18,7 +18,7 @@ class Home extends Component {
   }
 
   scrollToTopWithCallback() {
-    let scroller = scrollToComponent(this.Top, { offset: -200, align: 'top', duration: 1500 });
+    let scroller = scrollToComponent(this.Top, { offset: 0, align: 'middle', duration: 1500, ease:'inCirc' });
     scroller.on('end', () => console.log('Scrolling end!'));
   }
 
@@ -51,6 +51,7 @@ class Home extends Component {
       <Container>
         <Row>
           <Col size="md-12">
+          <div id="first-row">
             <Jumbotron>
               <h1 className="text-left mb-4" ref={(section) => { this.Top = section; }}>
                 <strong><i>Find a coach today. For free.</i></strong>
@@ -58,12 +59,13 @@ class Home extends Component {
               <h4 className="text-left">personal, professional, executive and wellness coaching</h4>
             </Jumbotron>
             <p className="btn btn-primary next-page animated infinite pulse" onClick={() => scrollToComponent(this.One, { offset: 0, align: 'top', duration: 300, ease: 'inQuad' })}>How it Works</p>
+            </div>
           </Col>
         </Row>
 
         <Row>
           <Col size="md-12">
-            <div className="container" ref={(section) => { this.One = section; }}>
+            <div id="second-row" className="container-fluid" ref={(section) => { this.One = section; }}>
               <h2>We help you find coaching</h2>
               <p>Career, personal, wellness</p>
               <button className="btn btn-primary" onClick={() => scrollToComponent(this.Two, { offset: 0, align: 'top', duration: 300, ease: 'inQuad' })}>Go To Two</button>
@@ -73,7 +75,7 @@ class Home extends Component {
 
         <Row>
           <Col size="md-12">
-            <div className="container" ref={(section) => { this.Two = section; }}>
+            <div id="third-row" className="container-fluid" ref={(section) => { this.Two = section; }}>
               <h2>Professional coaches with years of experience</h2>
               <p>at an affordable rate</p>
               <button
@@ -89,9 +91,9 @@ class Home extends Component {
 
         <Row>
           <Col size="md-12">
-            <div className="container" ref={(section) => { this.Three = section; }}>
+            <div id="fourth-row" className="container-fluid" ref={(section) => { this.Three = section; }}>
             <Typeform />
-            <button onClick={this.scrollToTopWithCallback}>Go to Top</button>
+            <button className="btn btn-primary" onClick={this.scrollToTopWithCallback}>Go to Top</button>
             </div>
           </Col>
         </Row>
