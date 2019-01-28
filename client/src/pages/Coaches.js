@@ -7,27 +7,9 @@ import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List } from "../components/List";
 
-class Saved extends Component {
+class Forms extends Component {
     state = {
         books: []
-    };
-
-    componentDidMount() {
-        this.getSavedBooks();
-    }
-
-    getSavedBooks = () => {
-        API.getSavedBooks()
-        .then(res =>
-            this.setState({
-                books: res.data
-            })
-        )
-        .catch(err => console.log(err));
-    };
-
-    handleBookDelete = id => {
-        API.deleteBook(id).then(res => this.getSavedBooks());
     };
 
     render() {
@@ -36,16 +18,15 @@ class Saved extends Component {
                 <Row>
                     <Col size="md-12">
                         <Jumbotron>
-                            <h1 className="text-center">
-                            <strong><i>Google Books</i></strong>
+                            <h1 className="text-left">
+                                <strong><i>Coaches</i></strong>
                             </h1>
-                            <h2 className="text-center">find and save a book</h2>
                         </Jumbotron>
                     </Col>
                 </Row>
                 <Row>
                     <Col size="md-12">
-                        <Card title="Saved Books" icon="download">
+                        {/* <Card title="Saved Books" icon="download">
                             {this.state.books.length ? (
                                 <List>
                                     {this.state.books.map(book => (
@@ -71,13 +52,12 @@ class Saved extends Component {
                             ) : (
                                 <h2 className="text-center">No Saved Books</h2>
                             )}
-                        </Card>
+                        </Card> */}
                     </Col>
                 </Row>
-                <Footer />
             </Container>
         );
     }
 }
 
-export default Saved;
+export default Forms;

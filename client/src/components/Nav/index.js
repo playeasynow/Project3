@@ -50,20 +50,19 @@ class Nav extends Component {
                     <div className={`${this.state.open ? "" : "collapse "}navbar-collapse justify-content-end`}>
                         <ul className="nav">
                             <li className="nav-item mt-3">
-                                {/* <Link
+                                <Link
                                     onClick={this.toggleNav}
                                     className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
-                                    to="/saved"
+                                    to="/signup"
                                 >
-                                    <h4>about</h4>
-                                </Link> */}
-                                <a className="nav-link" href="#scroll-example">About</a>
+                                    <h4>get started</h4>
+                                </Link>
                             </li>
                             <li className="nav-item mt-3">
                                 <Link
                                     onClick={this.toggleNav}
                                     className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
-                                    to="/saved"
+                                    to="/coaches"
                                 >
                                     <h4>for coaches</h4>
                                 </Link>
@@ -72,7 +71,7 @@ class Nav extends Component {
                                 <Link
                                     onClick={this.toggleNav}
                                     className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
-                                    to="/saved"
+                                    to="/dashboard"
                                 >
                                     <h4>login</h4>
                                 </Link>
