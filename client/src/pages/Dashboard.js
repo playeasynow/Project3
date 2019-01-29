@@ -22,7 +22,8 @@ class Forms extends Component {
 
     displayCalendar = () => {
         this.setState({
-            displayCalendars: !this.state.displayCalendars
+            displayCalendars: !this.state.displayCalendars,
+            date: new Date()
         })
     }
 
@@ -63,12 +64,12 @@ class Forms extends Component {
         let calendar = null;
 
         if (this.state.displayCalendars) {
-            calendar  = (
-            <div>
-                 <Calendar />
-            </div>
+            calendar = (
+                <div>
+                    <Calendar />
+                </div>
             )
-       };
+        };
 
         return (
             <Container>
@@ -81,11 +82,6 @@ class Forms extends Component {
                                         <strong><i>Hi, Hannah!</i></strong>
                                     </h2>
                                 </div>
-                                {/* <div className="col-4">
-                                    <h2 className="text-left mb-3">
-                                        <strong><i>Hello</i></strong>
-                                    </h2>
-                                </div> */}
                             </div>
                         </div>
                     </Col>
@@ -94,7 +90,7 @@ class Forms extends Component {
                     <Col size="md-12">
                         <div className="container">
                             <div className="row">
-                                <div className="col-6">
+                                <div className="col-8">
                                     <Card title="Here are your matches:" icon="user-circle">
                                         {this.state.matches.length ? (
                                             <List>
@@ -120,8 +116,10 @@ class Forms extends Component {
                                             )}
                                     </Card>
                                 </div>
-                                <div className="col-6">
-                                {calendar}
+                                <div className="col-4">
+                                    <div className="container mt-5">
+                                        {calendar}
+                                    </div>
                                 </div>
                             </div>
                         </div>
