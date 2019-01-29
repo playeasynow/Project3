@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import Jumbotron from "../components/Jumbotron";
 import Card from "../components/Card";
 import User from "../components/User";
+import Calendar from "../components/Calendar";
 // import Footer from "../components/Footer";
 // import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
@@ -11,11 +12,18 @@ import "./style.css";
 
 class Forms extends Component {
     state = {
-        matches: []
+        matches: [],
+        displayCalendars: false
     };
 
     componentDidMount() {
         this.getMatches();
+    }
+
+    displayCalendar = () => {
+        this.setState({
+            displayCalendars: !this.state.displayCalendars
+        })
     }
 
     getMatches = () => {
@@ -51,6 +59,17 @@ class Forms extends Component {
     };
 
     render() {
+
+        let calendar = null;
+
+        if (this.state.displayCalendars) {
+            calendar  = (
+            <div>
+                 <Calendar />
+            </div>
+            )
+       };
+
         return (
             <Container>
                 <Row>
@@ -74,32 +93,37 @@ class Forms extends Component {
                 <Row>
                     <Col size="md-12">
                         <div className="container">
-                            {/* <h2>Here are your matches:</h2> */}
-                            <Card title="Here are your matches:" icon="user-circle">
-                            {this.state.matches.length ? (
-                                <List>
-                                    {this.state.matches.map(user => (
-                                        <User
-                                        key={user._id}
-                                        name={user.name}
-                                        coachingTypes={user.coachingTypes.join(", ")}
-                                        email={user.confirmedEmail}
-                                        Button={() => (
-                                            <button
-                                            onClick={() => this.handleBookDelete(user._id)}
-                                            className="btn btn-danger ml-12"
-                                            >
-                                            Delete
+                            <div className="row">
+                                <div className="col-6">
+                                    <Card title="Here are your matches:" icon="user-circle">
+                                        {this.state.matches.length ? (
+                                            <List>
+                                                {this.state.matches.map(user => (
+                                                    <User
+                                                        key={user._id}
+                                                        name={user.name}
+                                                        coachingTypes={user.coachingTypes.join(", ")}
+                                                        email={user.confirmedEmail}
+                                                        Button={() => (
+                                                            <button
+                                                                onClick={() => this.displayCalendar()}
+                                                                className="btn btn-primary ml-12"
+                                                            >
+                                                                Schedule Intro Session
                                             </button>
-                                        )}
-                                        />
-                                    ))}
-                                </List>
-                            ) : (
-                                <h2 className="text-center">Your matches will load shortly.</h2>
-                            )}
-                        </Card>
-
+                                                        )}
+                                                    />
+                                                ))}
+                                            </List>
+                                        ) : (
+                                                <h2 className="text-center">Your matches will load shortly.</h2>
+                                            )}
+                                    </Card>
+                                </div>
+                                <div className="col-6">
+                                {calendar}
+                                </div>
+                            </div>
                         </div>
                     </Col>
                 </Row>
