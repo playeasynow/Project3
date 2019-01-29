@@ -6,6 +6,8 @@ import Jumbotron from "../components/Jumbotron";
 // import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 // import { List } from "../components/List";
+import "./style.css";
+// import "./script.js";
 
 class Forms extends Component {
     state = {
@@ -27,7 +29,10 @@ class Forms extends Component {
                 <Row>
                     <Col size="md-12">
                         <div className="container">
-                        <h2>HELLO</h2>
+                        <h2>CHAT</h2>
+                        <div class="copy">Please wait for all guests to arrive.</div>
+                        <video id="localVideo" autoplay muted></video>
+                        <video id="remoteVideo" autoplay></video>
                         </div>
                     </Col>
                 </Row>
