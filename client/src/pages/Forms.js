@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Form from "../components/Form";
+// import axios from "axios";
 // import Footer from "../components/Footer";
 // import API from "../utils/API";
 import Typeform from "../components/Typeform";
@@ -24,10 +25,16 @@ class Forms extends Component {
     }
 
     handleInputChange = event => {
-        // console.log(event.target);
         const { name, value } = event.target;
         this.setState({
-          [name]: value
+            [name]: value
+        });
+    };
+
+    handleInputChangeRadio = event => {
+        let user = event.target.value;
+        this.setState({
+            user: user,
         });
     };
 
@@ -38,26 +45,28 @@ class Forms extends Component {
 
     sendToDatabase = () => {
         let userObj = {
-            fname: this.state.fname,
-            lname: this.state.lname,
+            name: this.state.fname + " " + this.state.lname,
             pword: this.state.pword,
             user: this.state.user,
             confirmedEmail: this.state.email
         };
         console.log(userObj);
-        // API.getBooks(this.state.q)
-        //   .then(res =>
-        //     this.setState({
-        //       books: res.data
-        //     })
-        //   )
-        //   .catch(() =>
-        //     this.setState({
-        //       books: [],
-        //       message: "No New Books Found, Try a Different Query"
-        //     })
-        //   );
-      };
+        // axios.post('https://project3-go-server.herokuapp.com/newuser', {
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // },  userObj})
+        // .then(function (response) {
+        // // handle success
+        // console.log(response);
+        // })
+        // .catch(function (error) {
+        // // handle error
+        // console.log(error);
+        // })
+        // .then(function () {
+        // // always executed
+        // });
+    };
 
     render() {
         return (
@@ -73,12 +82,13 @@ class Forms extends Component {
                                     <Form
                                         handleInputChange={this.handleInputChange}
                                         handleFormSubmit={this.handleFormSubmit}
+                                        handleInputChangeRadio={this.handleInputChangeRadio}
                                         fname={this.state.fname}
                                         lname={this.state.lname}
                                         pword={this.state.pword}
-                                        user={this.state.user}
+                                        gridRadios={this.state.user}
                                         email={this.state.email}
-                                        />
+                                    />
                                 </div>
                                 <div className="col-4">
                                     <h2 className="text-left mb-3">

@@ -1,7 +1,7 @@
 import React from "react";
 // import Typeform from "../Typeform";
 
-function Form({ fname, lname, pword, user, email, handleInputChange, handleFormSubmit}) {
+function Form({ fname, lname, pword, email, handleInputChange, handleFormSubmit, handleInputChangeRadio}) {
     return (
         <form>
             <div className="form-group row">
@@ -29,12 +29,12 @@ function Form({ fname, lname, pword, user, email, handleInputChange, handleFormS
                     <legend className="col-form-label col-sm-2 pt-0">Client or Coach</legend>
                     <div className="col-sm-10">
                         <div className="form-check custom-control-inline">
-                            <input onChange={handleInputChange} className="form-check-input" type="radio" name="gridRadios" id="user-client" value={user} defaultChecked />
+                            <input onChange={handleInputChangeRadio} className="form-check-input" type="radio" name="gridRadios" value="client" />
                             <label className="form-check-label">
                                 Client</label>
                         </div>
                         <div className="form-check custom-control-inline">
-                            <input onChange={handleInputChange} className="form-check-input" type="radio" name="gridRadios" id="user-coach" value={user} />
+                            <input onChange={handleInputChangeRadio} className="form-check-input" type="radio" name="gridRadios" value="coach" />
                             <label className="form-check-label">
                                 Coach</label>
                         </div>

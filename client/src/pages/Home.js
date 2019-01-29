@@ -24,7 +24,7 @@ class Home extends Component {
   }
 
   scrollToTopWithCallback() {
-    let scroller = scrollToComponent(this.Top, { offset: 0, align: 'middle', duration: 1500, ease: 'inCirc' });
+    let scroller = scrollToComponent(this.Top, { offset: 0, align: 'middle', duration: 500, ease: 'inQuad' });
     scroller.on('end', () => console.log('Scrolling end!'));
   }
 
@@ -101,11 +101,6 @@ class Home extends Component {
             <div id="third-row" className="container-fluid" ref={(section) => { this.Two = section; }}>
               <h2>Professional coaches with years of experience</h2>
               <p>at an affordable rate</p>
-              <button
-                className="btn btn-primary"
-                onClick={this.onBtnClick}>
-                Backend
-              </button>
               <br></br>
               <button className="btn btn-primary" onClick={() => scrollToComponent(this.Three, { offset: 0, align: 'top', duration: 300, ease: 'inQuad' })}>Go To Three</button>
             </div>
@@ -115,8 +110,9 @@ class Home extends Component {
         <Row>
           <Col size="md-12">
             <div id="fourth-row" className="container-fluid" ref={(section) => { this.Three = section; }}>
-              <button className="btn btn-primary" onClick={this.scrollToTopWithCallback}>Go to Top</button>
-
+            <h2>Get matched!</h2>
+              <p>using your information</p>
+              <br></br>
               <Link
                 onClick={this.toggleNav}
                 className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
@@ -124,6 +120,8 @@ class Home extends Component {
               >
                 <h4 className="btn btn-primary" >get started</h4>
               </Link>
+              <button className="btn btn-primary" onClick={this.scrollToTopWithCallback}>Go to Top</button>
+
             </div>
           </Col>
         </Row>

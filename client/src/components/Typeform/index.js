@@ -9,6 +9,7 @@ class TypeformWidget extends React.Component {
 
   openForm() {
     this.typeformEmbed.typeform.open();
+    // console.log(this.state.user);
   }
 
   render() {
@@ -27,7 +28,7 @@ class TypeformWidget extends React.Component {
           }}
         />
         <button className="btn btn-primary" onClick={this.openForm} style={{ cursor: 'pointer' }}>
-          Click to open the popup!
+          Start Survey
         </button>
       </div>
     );
