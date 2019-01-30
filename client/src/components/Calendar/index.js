@@ -16,6 +16,7 @@ class myCalendar extends Component {
 
   scheduleSession = event => {
     console.log(this.state.date);
+    alert("Great! You have booked " + this.state.date + "." );
     // console.log(this.props.displayCalendars);
         // axios.post('https://project3-go-server.herokuapp.com/newuser', {
         // headers: {

@@ -3,7 +3,7 @@ import { ListItem } from "../List";
 import { Row, Col } from "../Grid";
 import "./style.css";
 
-function User({ name, email, coachingTypes, Button }) {
+function User({ name, email, coachingTypes, Button, Button2 }) {
     return (
         <ListItem>
         <Row className="flex-wrap-reverse">
@@ -21,8 +21,9 @@ function User({ name, email, coachingTypes, Button }) {
             </Col>
         </Row>
         <Row>
-            <Col size="md-6">
+            <Col size="md-8">
                 <p className="font-italic small">Email: {email}</p>
+                {/* <Button2 /> */}
             </Col>
         </Row>
         {/* <Row>
@@ -31,8 +32,16 @@ function User({ name, email, coachingTypes, Button }) {
             </Col>
         </Row> */}
         <Row>
-            <Col size="12 sm-8 md-10">
+            <Col size="md-8">
                 <p>{coachingTypes}</p>
+            </Col>
+            <Col size="md-4">
+                <div className="btn-container">
+                    {/* <a className="btn btn-light" target="_blank" rel="noopener noreferrer" href="www.google.com">
+                    View
+                    </a> */}
+                    <Button2 />
+                </div>
             </Col>
         </Row>
         </ListItem>

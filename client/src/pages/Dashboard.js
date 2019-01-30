@@ -5,6 +5,7 @@ import User from "../components/User";
 import Calendar from "../components/Calendar";
 // import Footer from "../components/Footer";
 // import API from "../utils/API";
+// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List } from "../components/List";
 import "./style.css";
@@ -18,14 +19,18 @@ class Forms extends Component {
 
     componentDidMount() {
         this.getMatches();
-    }
+    };
 
     displayCalendar = () => {
         this.setState({
             displayCalendars: !this.state.displayCalendars,
             date: new Date()
         })
-    }
+    };
+
+    toggleNav = () => {
+        this.setState({ open: !this.state.open });
+    };
 
     getMatches = () => {
         let userObj = [{
@@ -103,10 +108,23 @@ class Forms extends Component {
                                                         Button={() => (
                                                             <button
                                                                 onClick={() => this.displayCalendar()}
-                                                                className="btn btn-primary ml-12"
-                                                            >
-                                                                Schedule Intro Session
-                                            </button>
+                                                                className="btn btn-primary"
+                                                            >Schedule Intro Session</button>
+                                                        )}
+                                                        Button2={() => (
+                                                            <a
+                                                            href="https://scaledrone.github.io/webrtc/index.html"
+                                                            className="btn btn-success"
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                        >Start Intro Session</a>
+                                                        //     <Link
+                                                        //     onClick={this.toggleNav}
+                                                        //     className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
+                                                        //     to="/conference"
+                                                        // >
+                                                        //     <h4 className="btn btn-success" >Join Conference</h4>
+                                                        // </Link>
                                                         )}
                                                     />
                                                 ))}

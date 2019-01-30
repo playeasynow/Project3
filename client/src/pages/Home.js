@@ -24,8 +24,7 @@ class Home extends Component {
   }
 
   scrollToTopWithCallback() {
-    let scroller = scrollToComponent(this.Top, { offset: 0, align: 'middle', duration: 500, ease: 'inQuad' });
-    scroller.on('end', () => console.log('Scrolling end!'));
+    scrollToComponent(this.Top, { offset: 0, align: 'middle', duration: 500, ease: 'inQuad' });
   }
 
   updateWidth = () => {
