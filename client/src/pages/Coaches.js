@@ -18,7 +18,7 @@ class Forms extends Component {
                 <Row>
                     <Col size="md-12">
                         <Jumbotron>
-                            <h1 className="text-left">
+                            <h1 className="text-left text-white">
                                 <strong><i>Coaches</i></strong>
                             </h1>
                         </Jumbotron>

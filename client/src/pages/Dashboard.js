@@ -24,7 +24,8 @@ class Forms extends Component {
     displayCalendar = () => {
         this.setState({
             displayCalendars: !this.state.displayCalendars,
-            date: new Date()
+            date: new Date(),
+            // key: this.state._id
         })
     };
 
@@ -55,13 +56,21 @@ class Forms extends Component {
             matches: userObj,
         });
 
-        // API.getSavedBooks()
-        // .then(res =>
-        //     this.setState({
-        //         books: res.data
-        //     })
-        // )
-        // .catch(err => console.log(err));
+        // axios.get('https://project3-go-server.herokuapp.com/user/email', {
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // },  userObj})
+        // .then(function (response) {
+        // // handle success
+        // console.log(response);
+        // })
+        // .catch(function (error) {
+        // // handle error
+        // console.log(error);
+        // })
+        // .then(function () {
+        // // always executed
+        // });
     };
 
     render() {
@@ -82,7 +91,7 @@ class Forms extends Component {
                     <Col size="md-12">
                         <div className="container mt-4">
                             <div className="row">
-                                <div className="col-6">
+                                <div className="col-6 text-white">
                                     <h2 className="text-left mb-3">
                                         <strong><i>Hi, Hannah!</i></strong>
                                     </h2>
@@ -109,10 +118,12 @@ class Forms extends Component {
                                                             <button
                                                                 onClick={() => this.displayCalendar()}
                                                                 className="btn btn-primary"
+                                                                key={user._id}
                                                             >Schedule Intro Session</button>
                                                         )}
                                                         Button2={() => (
                                                             <a
+                                                            key={user._id}
                                                             href="https://scaledrone.github.io/webrtc/index.html"
                                                             className="btn btn-success"
                                                             target="_blank"
@@ -135,7 +146,7 @@ class Forms extends Component {
                                     </Card>
                                 </div>
                                 <div className="col-4">
-                                    <div className="container mt-5">
+                                    <div className="container mt-5 text-white">
                                         {calendar}
                                     </div>
                                 </div>

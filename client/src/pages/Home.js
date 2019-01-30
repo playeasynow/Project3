@@ -75,12 +75,12 @@ class Home extends Component {
           <Col size="md-12">
             <div id="first-row">
               <Jumbotron>
-                <h1 className="text-left mb-4" ref={(section) => { this.Top = section; }}>
-                  <strong><i>Find a coach today. For free.</i></strong>
+                <h1 className="text-left mt-3 mb-4 text-center" ref={(section) => { this.Top = section; }}>
+                  <strong>Find a coach today. For free.</strong>
                 </h1>
-                <h4 className="text-left">personal, professional, executive and wellness coaching</h4>
+                <h4 className="text-center">personal, professional, executive and wellness coaching</h4>
+                <div className="container"><p className="btn btn-dark next-page animated infinite pulse" onClick={() => scrollToComponent(this.One, { offset: 0, align: 'top', duration: 300, ease: 'inQuad' })}>How it Works</p></div>
               </Jumbotron>
-              <p className="btn btn-primary next-page animated infinite pulse" onClick={() => scrollToComponent(this.One, { offset: 0, align: 'top', duration: 300, ease: 'inQuad' })}>How it Works</p>
             </div>
           </Col>
         </Row>
@@ -109,7 +109,7 @@ class Home extends Component {
         <Row>
           <Col size="md-12">
             <div id="fourth-row" className="container-fluid" ref={(section) => { this.Three = section; }}>
-            <h2>Get matched!</h2>
+              <h2>Get matched!</h2>
               <p>using your information</p>
               <br></br>
               <Link

@@ -1,14 +1,13 @@
-/* .main-header {
-    background-image: url("../images/colorBlob.png");
-    height: 100vh;
-    background-size: 100% 100%;
-    width: auto;
-    /* background-size: 170vh; 
-}*/
-
 .main-header {
     font-size: 3.5rem;
     padding-left: 0;
+}
+
+.down-arrow {
+    background-image: url("../images/down-arrow.png");
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 300px;
 }
 
 .typeform-widget {
@@ -17,17 +16,14 @@
     height: 400px;
 }
 
-.row {
-    /* height: 100vh; */
-    /* border: 1px solid black; */
-}
-
 .next-page {
-    position: absolute;
-    top: 80vh;
-    right: 95vh;
+    font-family: 'Lobster', cursive;
+    padding: 2%;
+    font-size: 1.5rem;
+    margin-top: 20%;
+    margin-left: 39%;
+    margin-right: auto;
     cursor: pointer;
-    /* left: 50vh; */
 }
 
 .column-style {
@@ -37,23 +33,37 @@
 }
 
 #first-row {
-    background-image: url("../images/colorBlob.png");
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cdefs%3E%3Cfilter id='a' x='-200%25' y='-200%25' width='400%25' height='400%25'%3E%3CfeGaussianBlur in='SourceGraphic' stdDeviation='50'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='%23838383'%3E%3Cpolygon points='-203 1800 -203 -900 397 450'/%3E%3Cpolygon points='1803 -900 1803 1800 1203 450'/%3E%3C/g%3E%3Cg fill='%23cccccc' filter='url(%23a)'%3E%3Cpolygon points='-203 1581 -203 -681 300 450'/%3E%3Cpolygon points='1803 -681 1803 1581 1300 450'/%3E%3C/g%3E%3Cg fill='%23414141'%3E%3Cpolygon points='-203 1581 -203 -681 300 450'/%3E%3Cpolygon points='1803 -681 1803 1581 1300 450'/%3E%3C/g%3E%3Cg fill='%23000000'%3E%3Cpolygon points='-203 1356 -203 -456 200 450'/%3E%3Cpolygon points='1803 -456 1803 1356 1400 450'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
     background-size: cover;
-    height: 90vh;
+    height: 89vh;
 }
 
 #second-row {
-    background-color: white;
+    background-color: #ffffff;
+    /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cdefs%3E%3Cfilter id='a' x='-200%25' y='-200%25' width='400%25' height='400%25'%3E%3CfeGaussianBlur in='SourceGraphic' stdDeviation='50'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='%23838383'%3E%3Cpolygon points='-203 1800 -203 -900 397 450'/%3E%3Cpolygon points='1803 -900 1803 1800 1203 450'/%3E%3C/g%3E%3Cg fill='%23cccccc' filter='url(%23a)'%3E%3Cpolygon points='-203 1581 -203 -681 300 450'/%3E%3Cpolygon points='1803 -681 1803 1581 1300 450'/%3E%3C/g%3E%3Cg fill='%23414141'%3E%3Cpolygon points='-203 1581 -203 -681 300 450'/%3E%3Cpolygon points='1803 -681 1803 1581 1300 450'/%3E%3C/g%3E%3Cg fill='%23000000'%3E%3Cpolygon points='-203 1356 -203 -456 200 450'/%3E%3Cpolygon points='1803 -456 1803 1356 1400 450'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover; */
     height: 100vh;
 }
 
 #third-row {
-    background-color: burlywood;
+    /* background-color: burlywood; */
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23000' stroke-width='4.1' stroke-linecap='round' %3E%3Cline stroke='%23000000' x1='639' y1='727' x2='590' y2='776'/%3E%3Cpolyline stroke='%23000000' points='586 717 888 415 981 512 279 1215 120 1056 607 569'/%3E%3Cline stroke='%23000000' x1='935' y1='494' x2='776' y2='653'/%3E%3Cline stroke='%23000000' x1='425' y1='624' x2='488' y2='560'/%3E%3Cpolyline stroke='%23000000' points='745 685 198 1232 -24 1010 226 759'/%3E%3Cline stroke='%23000000' x1='383' y1='666' x2='393' y2='655'/%3E%3Cline stroke='%23000000' x1='416' y1='569' x2='438' y2='547'/%3E%3Cline stroke='%23000000' x1='194' y1='664' x2='237' y2='622'/%3E%3Cpolyline stroke='%23000000' points='374 547 35 886 194 1045 618 622'/%3E%3Cline stroke='%23000000' x1='681' y1='685' x2='671' y2='696'/%3E%3Cline stroke='%23000000' x1='724' y1='516' x2='649' y2='590'/%3E%3Cline stroke='%23000000' x1='334' y1='776' x2='501' y2='611'/%3E%3Cpolyline stroke='%23000000' points='556 746 226 1077 353 1204 1052 505 956 410 713 653'/%3E%3Cline stroke='%23000000' x1='258' y1='727' x2='385' y2='600'/%3E%3Cline stroke='%23000000' x1='671' y1='505' x2='639' y2='537'/%3E%3Cpolyline stroke='%23000000' points='162 696-24 883 71 978 353 696'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: bottom right;
     height: 100vh;
 }
 
 #fourth-row {
-    background-color: bisque;
+    /* background-color: bisque; */
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23dbdbdb' points='800 100 0 200 0 800 1600 800 1600 200'/%3E%3Cpolygon fill='%23b6b6b6' points='800 200 0 400 0 800 1600 800 1600 400'/%3E%3Cpolygon fill='%23929292' points='800 300 0 600 0 800 1600 800 1600 600'/%3E%3Cpolygon fill='%236d6d6d' points='1600 800 800 400 0 800'/%3E%3Cpolygon fill='%23494949' points='1280 800 800 500 320 800'/%3E%3Cpolygon fill='%23242424' points='533.3 800 1066.7 800 800 600'/%3E%3Cpolygon fill='%23000000' points='684.1 800 914.3 800 800 700'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
     height: 100vh;
 }
 

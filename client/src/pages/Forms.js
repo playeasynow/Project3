@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Form from "../components/Form";
-// import axios from "axios";
+import axios from "axios";
 // import Footer from "../components/Footer";
 // import API from "../utils/API";
 import Typeform from "../components/Typeform";
@@ -51,21 +51,21 @@ class Forms extends Component {
             confirmedEmail: this.state.email
         };
         console.log(userObj);
-        // axios.post('https://project3-go-server.herokuapp.com/newuser', {
-        // headers: {
-        //     'Content-Type': 'application/json'
-        // },  userObj})
-        // .then(function (response) {
-        // // handle success
-        // console.log(response);
-        // })
-        // .catch(function (error) {
-        // // handle error
-        // console.log(error);
-        // })
-        // .then(function () {
-        // // always executed
-        // });
+        axios.post('https://project3-go-server.herokuapp.com/newuser', userObj, {
+        headers: {
+            'Content-Type': 'application/json'
+        }})
+        .then(function (response) {
+        // handle success
+        console.log(response);
+        })
+        .catch(function (error) {
+        // handle error
+        console.log(error);
+        })
+        .then(function () {
+        // always executed
+        });
     };
 
     render() {
@@ -73,7 +73,7 @@ class Forms extends Component {
             <Container>
                 <Row>
                     <Col size="md-12">
-                        <div className="container mt-4">
+                        <div className="container mt-4 text-white">
                             <div className="row">
                                 <div className="col-6">
                                     <h2 className="text-left mb-3">

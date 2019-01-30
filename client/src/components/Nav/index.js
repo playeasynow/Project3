@@ -30,11 +30,14 @@ class Nav extends Component {
     }
 
     render() {
+        // const logo = "../../images/guru-match-logo.png"
         return (
             <nav className="navbar sticky-top navbar-expand-lg navbar-light">
-                <div className="container">
-                    <Link className="navbar-brand pt-4 pb-0" to="/">
-                        <h1><i><b>guru match</b></i></h1>
+                <div className="container pl-0">
+                    <Link className="navbar-brand pt-3 pb-0" to="/">
+                        {/* <h1 className="lobster-font logo"><i><b></b></i></h1> */}
+                        {/* <img src={logo} alt="logo" /> */}
+                        <div className="logo pb-2"></div>
                     </Link>
                     <button
                         onClick={this.toggleNav}
@@ -55,7 +58,7 @@ class Nav extends Component {
                                     className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
                                     to="/signup"
                                 >
-                                    <h4>get started</h4>
+                                    <h4 className="oswald-font">get started</h4>
                                 </Link>
                             </li>
                             <li className="nav-item mt-3">
@@ -64,7 +67,7 @@ class Nav extends Component {
                                     className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
                                     to="/coaches"
                                 >
-                                    <h4>for coaches</h4>
+                                    <h4 className="oswald-font">for coaches</h4>
                                 </Link>
                             </li>
                             <li className="nav-item mt-3">
@@ -73,7 +76,7 @@ class Nav extends Component {
                                     className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
                                     to="/dashboard"
                                 >
-                                    <h4>login</h4>
+                                    <h4 className="oswald-font">login</h4>
                                 </Link>
                             </li>
                         </ul>

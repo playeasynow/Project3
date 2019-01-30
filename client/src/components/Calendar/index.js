@@ -3,12 +3,10 @@ import DateTimePicker from 'react-datetime-picker';
 // import axios from "axios";
 import "./style.css";
 
-class myCalendar extends Component {
+class MyCalendar extends Component {
   state = {
     date: new Date()
   }
-
-  onChange = date => this.setState({ date })
 
   onChangeDate = date => {
     this.setState({ date });
@@ -16,9 +14,11 @@ class myCalendar extends Component {
 
   scheduleSession = event => {
     console.log(this.state.date);
-    alert("Great! You have booked " + this.state.date + "." );
+    console.log(this.props.key);
+
+    // alert("Great! You have booked " + this.state.date + "." );
     // console.log(this.props.displayCalendars);
-        // axios.post('https://project3-go-server.herokuapp.com/newuser', {
+        // axios.post('https://project3-go-server.herokuapp.com/user/:email', {
         // headers: {
         //     'Content-Type': 'application/json'
         // },  userObj})
@@ -48,4 +48,4 @@ class myCalendar extends Component {
   }
 }
 
-export default myCalendar;
+export default MyCalendar;
