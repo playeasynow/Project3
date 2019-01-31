@@ -1,0 +1,32 @@
+body {
+    background-color: black;
+    /* background-image: url("./colorBlob.png");
+    /* animation: animatedBackground 400s linear infinite;
+    -moz-animation: animatedBackground 400s linear infinite;
+    -webkit-animation: animatedBackground 400s linear infinite;
+    -ms-animation: animatedBackground 400s linear infinite;
+    -o-animation: animatedBackground 400s linear infinite; */
+    font-family: sans-serif;
+}
+
+@keyframes animatedBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: -1750px 0; }
+}
+@-moz-keyframes animatedBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: -1750px 0; }
+}
+@-webkit-keyframes animatedBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: -1750px 0; }
+}
+@-ms-keyframes animatedBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: -1750px 0; }
+}
+@-o-keyframes animatedBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: -1750px 0; }
+}
+

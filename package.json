@@ -4,7 +4,11 @@
   "description": "easy way to find personal coaches",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cd client && npm start",
+    "client": "cd client && yarn start",
+    "install": "cd client && yarn install",
+    "build": "cd client && yarn build",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "repository": {
     "type": "git",
@@ -15,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/playeasynow/Project3/issues"
   },
-  "homepage": "https://github.com/playeasynow/Project3#readme"
+  "homepage": "https://github.com/playeasynow/Project3#readme",
+  "dependencies": {
+    "react-typeform-embed": "^0.2.0"
+  }
 }
