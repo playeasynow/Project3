@@ -4,7 +4,7 @@
   "description": "easy way to find personal coaches",
   "main": "index.js",
   "scripts": {
-    "start": "cd client && yarn start",
+    "start": "cd client && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
