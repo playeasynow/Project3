@@ -8,13 +8,12 @@ class MyCalendar extends Component {
     date: new Date()
   }
 
-  onChangeDate = date => {
-    this.setState({ date });
-  } 
+  // onChangeDate = date => {
+  //   this.setState({ date });
+  // } 
 
-  scheduleSession = event => {
-    console.log(this.state.date);
-    console.log(this.props.key);
+  // scheduleSession = event => {
+  //   console.log(this.state.date);
 
     // alert("Great! You have booked " + this.state.date + "." );
     // console.log(this.props.displayCalendars);
@@ -33,16 +32,16 @@ class MyCalendar extends Component {
         // .then(function () {
         // // always executed
         // });
-  }
+  // }
 
   render() {
     return (
       <div>
         <DateTimePicker
-          onChange={this.onChangeDate}
+          onChange={this.props.calClickHandler}
           value={this.state.date}
         />
-        <button className="btn btn-primary" onClick={this.scheduleSession}>Schedule Session!</button>
+        <button className="btn btn-primary" onClick={this.props.btnClickHandler}>Schedule Session!</button>
       </div>
     );
   }

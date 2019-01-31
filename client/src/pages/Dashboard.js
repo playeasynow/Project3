@@ -14,7 +14,8 @@ import "./style.css";
 class Forms extends Component {
     state = {
         matches: [],
-        displayCalendars: false
+        displayCalendars: false,
+        date: new Date()
     };
 
     componentDidMount() {
@@ -73,6 +74,16 @@ class Forms extends Component {
         // });
     };
 
+    scheduleSession = () => {
+        console.log("hello");
+        console.log(this.props.key);
+    }
+
+    onChangeDate = date => {
+        this.setState({ date });
+        console.log(this.state.date);
+      } 
+
     render() {
 
         let calendar = null;
@@ -80,7 +91,7 @@ class Forms extends Component {
         if (this.state.displayCalendars) {
             calendar = (
                 <div>
-                    <Calendar />
+                    <Calendar calClickHandler={() => this.onChangeDate()} btnClickHandler={() => this.scheduleSession()}/>
                 </div>
             )
         };

@@ -40,9 +40,9 @@ class Home extends Component {
     this.setState({ open: !this.state.open });
   };
 
-  componentWillUnMount() {
-    window.removeEventListener("resize", this.updateWidth);
-  }
+  // componentWillUnMount() {
+  //   window.removeEventListener("resize", this.updateWidth);
+  // }
 
   openForm() {
     this.typeformEmbed.typeform.open();
@@ -75,7 +75,7 @@ class Home extends Component {
           <Col size="md-12">
             <div id="first-row">
               <Jumbotron>
-                <h1 className="text-left mt-3 mb-4 text-center" ref={(section) => { this.Top = section; }}>
+                <h1 className="text-left mt-5 pt-3 text-center" ref={(section) => { this.Top = section; }}>
                   <strong>Find a coach today. For free.</strong>
                 </h1>
                 <h4 className="text-center">personal, professional and wellness coaching</h4>
@@ -115,7 +115,6 @@ class Home extends Component {
               <h2 className="text-white">.</h2>
               <p className="text-white">.</p>
               <div className="container mt-5 border-box">
-                {/* <button className="btn btn-primary" onClick={() => scrollToComponent(this.Three, { offset: 0, align: 'top', duration: 300, ease: 'inQuad' })}>Go To Three</button> */}
                 <Link
                   onClick={this.toggleNav}
                   className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}

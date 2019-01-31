@@ -10,7 +10,6 @@ class Forms extends Component {
     state = {
         fname: "",
         lname: "",
-        pword: "",
         user: "",
         email: ""
     };
@@ -46,7 +45,6 @@ class Forms extends Component {
     sendToDatabase = () => {
         let userObj = {
             name: this.state.fname + " " + this.state.lname,
-            pword: this.state.pword,
             user: this.state.user,
             confirmedEmail: this.state.email
         };
@@ -85,7 +83,6 @@ class Forms extends Component {
                                         handleInputChangeRadio={this.handleInputChangeRadio}
                                         fname={this.state.fname}
                                         lname={this.state.lname}
-                                        pword={this.state.pword}
                                         gridRadios={this.state.user}
                                         email={this.state.email}
                                     />
