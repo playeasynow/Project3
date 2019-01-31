@@ -91,7 +91,7 @@ class Forms extends Component {
         if (this.state.displayCalendars) {
             calendar = (
                 <div>
-                    <Calendar calClickHandler={() => this.onChangeDate()} btnClickHandler={() => this.scheduleSession()}/>
+                    <Calendar btnClickHandler={() => this.scheduleSession()}/>
                 </div>
             )
         };

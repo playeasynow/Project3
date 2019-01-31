@@ -69,11 +69,22 @@ class Nav extends Component {
                                     <h4 className="oswald-font">for coaches</h4>
                                 </Link>
                             </li>
+
                             <li className="nav-item mt-3">
                                 <Link
                                     onClick={this.toggleNav}
                                     className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
-                                    to="/dashboard"
+                                    to="/account"
+                                >
+                                    <h4 className="oswald-font">account</h4>
+                                </Link>
+                            </li>
+                            
+                            <li className="nav-item mt-3">
+                                <Link
+                                    onClick={this.toggleNav}
+                                    className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
+                                    to="/signin"
                                 >
                                     <h4 className="oswald-font">login</h4>
                                 </Link>
