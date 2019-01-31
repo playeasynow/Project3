@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import * as ROUTES from "./constants/routes";
+import { withFirebase } from './components/Firebase';
 import Home from "./pages/Home";
 import Forms from "./pages/Forms";
 import AccountPage from "./pages/Dashboard";
@@ -14,12 +15,32 @@ import PasswordForgetPage from "./components/PasswordForget";
 import AdminPage from "./components/Admin";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      authUser: null,
+    };
+  }
+  componentDidMount() {
+    this.listener = this.props.firebase.auth.onAuthStateChanged(
+      authUser => {
+        authUser
+          ? this.setState({ authUser })
+          : this.setState({ authUser: null });
+      }
+    );
+  }
+
+  componentWillUnmount() {
+    this.listener();
+  }
 
   render() {
     return (
       <Router>
         <div>
-          <Nav />
+          <Nav authUser={this.state.authUser} />
           <Switch>
             <Route exact path={ROUTES.LANDING} component={Home} />
             <Route exact path={ROUTES.SIGN_UP} component={SignUpPage} />
@@ -39,4 +60,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withFirebase(App);
