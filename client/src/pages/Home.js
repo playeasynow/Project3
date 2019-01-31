@@ -112,8 +112,8 @@ class Home extends Component {
         <Row>
           <Col size="md-12">
             <div id="fourth-row" className="container-fluid" ref={(section) => { this.Three = section; }}>
-              <h2 className="text-white">We help you find coaching</h2>
-              <p className="text-white">Career, personal, wellness</p>
+              <h2 className="text-white">.</h2>
+              <p className="text-white">.</p>
               <div className="container mt-5 border-box">
                 {/* <button className="btn btn-primary" onClick={() => scrollToComponent(this.Three, { offset: 0, align: 'top', duration: 300, ease: 'inQuad' })}>Go To Three</button> */}
                 <Link
