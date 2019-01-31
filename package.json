@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/playeasynow/Project3#readme",
   "dependencies": {
+    "dotenv": "^6.2.0",
     "react-typeform-embed": "^0.2.0"
   }
 }

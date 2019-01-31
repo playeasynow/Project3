@@ -1,0 +1,15 @@
+#sign-up-bg {
+    background-color: white;
+    height: 88.5vh;
+}
+
+#sign-up-box {
+    padding-top: 5rem;
+    width: 55rem;
+}
+
+.lobster-font {
+    font-family: 'Lobster', cursive;
+    border: .20rem solid black;
+    padding: 1rem;
+}
