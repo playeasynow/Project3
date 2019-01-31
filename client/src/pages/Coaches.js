@@ -16,9 +16,9 @@ class Forms extends Component {
         return (
             <Container>
                 <Row>
-                    <Col size="md-12">
+                    <Col size="md-12 white-background">
                         <Jumbotron>
-                            <h1 className="text-left text-white">
+                            <h1 className="text-left">
                                 <strong><i>Coaches</i></strong>
                             </h1>
                         </Jumbotron>

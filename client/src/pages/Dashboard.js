@@ -88,10 +88,10 @@ class Forms extends Component {
         return (
             <Container>
                 <Row>
-                    <Col size="md-12">
+                    <Col size="md-12 white-background-dash">
                         <div className="container mt-4">
                             <div className="row">
-                                <div className="col-6 text-white">
+                                <div className="col-6">
                                     <h2 className="text-left mb-3">
                                         <strong><i>Hi, Hannah!</i></strong>
                                     </h2>
@@ -101,7 +101,7 @@ class Forms extends Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Col size="md-12">
+                    <Col size="md-12 white-background-dash-2">
                         <div className="container">
                             <div className="row">
                                 <div className="col-8">
@@ -146,7 +146,7 @@ class Forms extends Component {
                                     </Card>
                                 </div>
                                 <div className="col-4">
-                                    <div className="container mt-5 text-white">
+                                    <div className="container mt-5">
                                         {calendar}
                                     </div>
                                 </div>

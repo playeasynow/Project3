@@ -30,12 +30,11 @@ class Nav extends Component {
     }
 
     render() {
-        // const logo = "../../images/guru-match-logo.png"
         return (
             <nav className="navbar sticky-top navbar-expand-lg navbar-light">
                 <div className="container pl-0">
                     <Link className="navbar-brand pt-3 pb-0" to="/">
-                        {/* <h1 className="lobster-font logo"><i><b></b></i></h1> */}
+                        {/* <h1 className="lobster-font"><i><b>guru match</b></i></h1> */}
                         {/* <img src={logo} alt="logo" /> */}
                         <div className="logo pb-2"></div>
                     </Link>

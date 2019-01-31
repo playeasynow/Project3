@@ -72,8 +72,8 @@ class Forms extends Component {
         return (
             <Container>
                 <Row>
-                    <Col size="md-12">
-                        <div className="container mt-4 text-white">
+                    <Col size="md-12 white-background">
+                        <div className="container mt-4">
                             <div className="row">
                                 <div className="col-6">
                                     <h2 className="text-left mb-3">
