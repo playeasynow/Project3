@@ -74,7 +74,7 @@ class SignUpFormBase extends Component {
                     value={username}
                     onChange={this.onChange}
                     type="text"
-                    placeholder="Full Name"
+                    placeholder="full name"
                 />
                 </div>
 
@@ -85,7 +85,7 @@ class SignUpFormBase extends Component {
                     value={email}
                     onChange={this.onChange}
                     type="text"
-                    placeholder="Email Address"
+                    placeholder="email address"
                 />
                 </div>
 
@@ -96,7 +96,7 @@ class SignUpFormBase extends Component {
                     value={passwordOne}
                     onChange={this.onChange}
                     type="password"
-                    placeholder="Password"
+                    placeholder="password"
                 />
                 </div>
 
@@ -107,7 +107,7 @@ class SignUpFormBase extends Component {
                     value={passwordTwo}
                     onChange={this.onChange}
                     type="password"
-                    placeholder="Confirm Password"
+                    placeholder="confirm password"
                 />
                 </div>
 
@@ -115,7 +115,7 @@ class SignUpFormBase extends Component {
                     className="btn btn-dark" 
                     disabled={isInvalid} 
                     type="submit">
-                    Ready!
+                    start questionnaire
                     </button>
 
                 {error && <p>{error.message}</p>}

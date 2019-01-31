@@ -12,4 +12,9 @@
     font-family: 'Lobster', cursive;
     border: .20rem solid black;
     padding: 1rem;
+    font-style: italic;
+}
+
+.form-control, .btn {
+    font-family: 'Oswald', sans-serif;
 }
