@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 import scrollToComponent from 'react-scroll-to-component';
 import Jumbotron from "../components/Jumbotron";
 import { Col, Row, Container } from "../components/Grid";
@@ -14,7 +13,6 @@ class Home extends Component {
 
   constructor(props) {
     super(props);
-    this.openForm = this.openForm.bind(this);
     this.scrollToTopWithCallback = this.scrollToTopWithCallback.bind(this)
   }
 
@@ -36,38 +34,6 @@ class Home extends Component {
     this.setState(newState);
   };
 
-  toggleNav = () => {
-    this.setState({ open: !this.state.open });
-  };
-
-  // componentWillUnMount() {
-  //   window.removeEventListener("resize", this.updateWidth);
-  // }
-
-  openForm() {
-    this.typeformEmbed.typeform.open();
-  }
-
-  callBackend = () => {
-    axios.get('https://project3-go-server.herokuapp.com/newuser')
-      .then(function (response) {
-        // handle success
-        console.log(response);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      })
-      .then(function () {
-        // always executed
-      });
-  }
-
-  onBtnClick = event => {
-    event.preventDefault();
-    this.callBackend();
-  }
-
   render() {
     return (
       <Container>
@@ -88,9 +54,7 @@ class Home extends Component {
         <Row>
           <Col size="md-12">
             <div id="second-row" className="container-fluid" ref={(section) => { this.One = section; }}>
-              <h2 className="text-white">We help you find coaching</h2>
-              <p className="text-white">Career, personal, wellness</p>
-              <div className="container mt-5 border-box">
+              <div className="container border-box">
                 <h2>We help you find coaches</h2>
                 <p>Whether it's to help your career, overall wellness and/or personal life </p>
                 <button className="btn btn-primary" onClick={() => scrollToComponent(this.Two, { offset: 0, align: 'top', duration: 300, ease: 'inQuad' })}>Go To Two</button>
@@ -102,8 +66,6 @@ class Home extends Component {
         <Row>
           <Col size="md-12">
             <div id="third-row" className="container-fluid" ref={(section) => { this.Two = section; }}>
-              <h2 className="text-white">We help you find coaching</h2>
-              <p className="text-white">Career, personal, wellness</p>
               <div className="container mt-5 border-box">
                 <h2>Professional coaches with years of experience at an affordable rate</h2>
                 <p>Coaches can tell us about their experience so that we match them with the right clients</p>
@@ -116,17 +78,12 @@ class Home extends Component {
         <Row>
           <Col size="md-12">
             <div id="fourth-row" className="container-fluid" ref={(section) => { this.Three = section; }}>
-              <h2 className="text-white">.</h2>
-              <p className="text-white">.</p>
               <div className="container mt-5 border-box">
-              <h2>Tell us a little about yourself to start talking to potential coaches as early as this week!</h2>
-                {/* <p>Coaches can tell us about their experience so that we match them with the right clients</p> */}
+                <h2>Tell us a little about yourself to start talking to potential coaches as early as this week!</h2>
                 <Link
-                  onClick={this.toggleNav}
                   className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
-                  to="/signup"
-                >
-                  <h4 className="btn btn-primary" >get started</h4>
+                  to="/signup">
+                  <button className="btn btn-primary" >get started</button>
                 </Link>
                 <button className="btn btn-primary" onClick={this.scrollToTopWithCallback}>Go to Top</button>
               </div>

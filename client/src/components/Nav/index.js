@@ -197,7 +197,7 @@ class NavNonAuth extends Component {
                             {/* <li className="nav-item mt-3">
                                 <SignOutButton />
                             </li> */}
-                            <li className="nav-item mt-3">
+                            {/* <li className="nav-item mt-3">
                                 <Link
                                     onClick={this.toggleNav}
                                     className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
@@ -205,7 +205,7 @@ class NavNonAuth extends Component {
                                 >
                                     <h4 className="oswald-font">admin</h4>
                                 </Link>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                 </div>
