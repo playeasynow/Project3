@@ -91,6 +91,8 @@ class Home extends Component {
               <h2 className="text-white">We help you find coaching</h2>
               <p className="text-white">Career, personal, wellness</p>
               <div className="container mt-5 border-box">
+                <h2>We help you find coaches</h2>
+                <p>Whether it's to help your career, overall wellness and/or personal life </p>
                 <button className="btn btn-primary" onClick={() => scrollToComponent(this.Two, { offset: 0, align: 'top', duration: 300, ease: 'inQuad' })}>Go To Two</button>
               </div>
             </div>
@@ -103,6 +105,8 @@ class Home extends Component {
               <h2 className="text-white">We help you find coaching</h2>
               <p className="text-white">Career, personal, wellness</p>
               <div className="container mt-5 border-box">
+                <h2>Professional coaches with years of experience at an affordable rate</h2>
+                <p>Coaches can tell us about their experience so that we match them with the right clients</p>
                 <button className="btn btn-primary" onClick={() => scrollToComponent(this.Three, { offset: 0, align: 'top', duration: 300, ease: 'inQuad' })}>Go To Three</button>
               </div>
             </div>
@@ -115,6 +119,8 @@ class Home extends Component {
               <h2 className="text-white">.</h2>
               <p className="text-white">.</p>
               <div className="container mt-5 border-box">
+              <h2>Tell us a little about yourself to start talking to potential coaches as early as this week!</h2>
+                {/* <p>Coaches can tell us about their experience so that we match them with the right clients</p> */}
                 <Link
                   onClick={this.toggleNav}
                   className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}

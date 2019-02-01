@@ -30,11 +30,20 @@ class SignUpFormBase extends Component {
     };
 
     onSubmit = event => {
-        const { email, passwordOne } = this.state;
+        const { username, email, passwordOne } = this.state;
 
         this.props.firebase
             .doCreateUserWithEmailAndPassword(email, passwordOne)
             .then(authUser => {
+                // Create a user in Firebase realtime database
+                return this.props.firebase
+                    .user(authUser.user.uid)
+                    .set({
+                        username,
+                        email,
+                    });
+            })
+            .then(() => {
                 this.setState({ ...INITIAL_STATE });
                 this.props.history.push(ROUTES.SURVEY);
             })
@@ -67,53 +76,53 @@ class SignUpFormBase extends Component {
 
         return (
             <form onSubmit={this.onSubmit}>
-            <div className="form-group">
-                <input
-                    className="form-control"
-                    name="username"
-                    value={username}
-                    onChange={this.onChange}
-                    type="text"
-                    placeholder="full name"
-                />
+                <div className="form-group">
+                    <input
+                        className="form-control"
+                        name="username"
+                        value={username}
+                        onChange={this.onChange}
+                        type="text"
+                        placeholder="full name"
+                    />
                 </div>
 
                 <div className="form-group">
-                <input
-                    className="form-control"
-                    name="email"
-                    value={email}
-                    onChange={this.onChange}
-                    type="text"
-                    placeholder="email address"
-                />
+                    <input
+                        className="form-control"
+                        name="email"
+                        value={email}
+                        onChange={this.onChange}
+                        type="text"
+                        placeholder="email address"
+                    />
                 </div>
 
                 <div className="form-group">
-                <input
-                    className="form-control"
-                    name="passwordOne"
-                    value={passwordOne}
-                    onChange={this.onChange}
-                    type="password"
-                    placeholder="password"
-                />
+                    <input
+                        className="form-control"
+                        name="passwordOne"
+                        value={passwordOne}
+                        onChange={this.onChange}
+                        type="password"
+                        placeholder="password"
+                    />
                 </div>
 
                 <div className="form-group">
-                <input
-                    className="form-control"
-                    name="passwordTwo"
-                    value={passwordTwo}
-                    onChange={this.onChange}
-                    type="password"
-                    placeholder="confirm password"
-                />
+                    <input
+                        className="form-control"
+                        name="passwordTwo"
+                        value={passwordTwo}
+                        onChange={this.onChange}
+                        type="password"
+                        placeholder="confirm password"
+                    />
                 </div>
 
                 <button
-                    className="btn btn-dark" 
-                    disabled={isInvalid} 
+                    className="btn btn-dark"
+                    disabled={isInvalid}
                     type="submit">
                     start questionnaire
                     </button>

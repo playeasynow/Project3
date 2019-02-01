@@ -8,9 +8,7 @@ class MyCalendar extends Component {
     date: new Date()
   }
 
-  onChangeDate = date => {
-    this.setState({ date });
-  } 
+ 
 
   // scheduleSession = event => {
   //   console.log(this.state.date);
@@ -38,8 +36,8 @@ class MyCalendar extends Component {
     return (
       <div>
         <DateTimePicker
-          onChange={this.onChangeDate}
-          value={this.state.date}
+          onChange={this.props.onChangeDate}
+          value={this.props.date}
         />
         <button className="btn btn-primary" onClick={this.props.btnClickHandler}>Schedule Session!</button>
       </div>

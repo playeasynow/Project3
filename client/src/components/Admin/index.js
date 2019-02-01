@@ -1,24 +1,68 @@
-import React, { Component } from "react";
-import Jumbotron from "../Jumbotron";
-import { Col, Row, Container } from "../Grid";
+import React, { Component } from 'react';
+import "./style.css";
 
-class Admin extends Component {
+import { withFirebase } from '../Firebase';
+
+class AdminPage extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            loading: false,
+            users: [],
+        };
+    }
+
+    componentDidMount() {
+        this.setState({ loading: true });
+
+        this.props.firebase.users().on('value', snapshot => {
+            const usersObject = snapshot.val();
+
+            const usersList = Object.keys(usersObject).map(key => ({
+                ...usersObject[key],
+                uid: key,
+            }));
+
+            this.setState({
+                users: usersList,
+                loading: false,
+            });
+        });
+    }
+
+    componentWillUnmount() {
+        this.props.firebase.users().off();
+    }
 
     render() {
+        const { users, loading } = this.state;
         return (
-            <Container>
-                <Row>
-                    <Col size="md-12 white-background">
-                        <Jumbotron>
-                            <h1 className="text-left">
-                                <strong><i>Admin</i></strong>
-                            </h1>
-                        </Jumbotron>
-                    </Col>
-                </Row>
-            </Container>
+            <div className="bg">
+                <h1 className="">Admin</h1>
+                {loading && <div>Loading ...</div>}
+
+                <UserList users={users} />
+            </div>
         );
     }
 }
+const UserList = ({ users }) => (
+    <ul>
+        {users.map(user => (
+            <li key={user.uid}>
+                <span>
+                    <strong>ID:</strong> {user.uid}
+                </span><br></br>
+                <span>
+                    <strong>E-Mail:</strong> {user.email}
+                </span><br></br>
+                <span>
+                    <strong>Username:</strong> {user.username}
+                </span>
+            </li>
+        ))}
+    </ul>
+);
 
-export default Admin;
+export default withFirebase(AdminPage);

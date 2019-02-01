@@ -87,6 +87,7 @@ video {
 
   .col-white-background {
       background-color: white;
+      padding-top: 9rem;
       height: 100vh;
   }
 

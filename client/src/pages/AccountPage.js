@@ -3,7 +3,6 @@ import Card from "../components/Card";
 import User from "../components/User";
 import Calendar from "../components/Calendar";
 // import Footer from "../components/Footer";
-// import { AuthUserContext } from '../components/Session';
 import { PasswordForgetForm } from '../components/PasswordForget';
 import PasswordChangeForm from '../components/PasswordChange';
 import { Col, Row, Container } from "../components/Grid";
@@ -21,16 +20,12 @@ class AccountPage extends Component {
         this.getMatches();
     };
 
-    displayCalendar = () => {
+    displayCalendar = (userId) => {
         this.setState({
             displayCalendars: !this.state.displayCalendars,
             date: new Date(),
-            // key: this.state._id
+            currentUser: userId
         })
-    };
-
-    toggleNav = () => {
-        this.setState({ open: !this.state.open });
     };
 
     getMatches = () => {
@@ -74,13 +69,15 @@ class AccountPage extends Component {
     };
 
     scheduleSession = () => {
-        console.log("hello");
-        console.log(this.props.key);
+        console.log(this.state.currentUser, "this is the user id")
+        console.log(this.state.date);
+        this.setState({
+            displayCalendars: !this.state.displayCalendars
+        });
     }
 
     onChangeDate = date => {
         this.setState({ date });
-        console.log(this.state.date);
     }
 
     render() {
@@ -89,12 +86,10 @@ class AccountPage extends Component {
         if (this.state.displayCalendars) {
             calendar = (
                 <div>
-                    <Calendar btnClickHandler={() => this.scheduleSession()} />
+                    <Calendar date={this.state.date} onChangeDate={this.onChangeDate} btnClickHandler={() => this.scheduleSession()} />
                 </div>
             )
         };
-
-        // let user = this.state;
 
         return (
             <Container>
@@ -118,7 +113,7 @@ class AccountPage extends Component {
                                                             email={user.confirmedEmail}
                                                             Button={() => (
                                                                 <button
-                                                                    onClick={() => this.displayCalendar()}
+                                                                    onClick={() => this.displayCalendar(user._id)}
                                                                     className="btn btn-primary"
                                                                     key={user._id}
                                                                 >schedule intro session</button>
@@ -131,13 +126,6 @@ class AccountPage extends Component {
                                                                     target="_blank"
                                                                     rel="noopener noreferrer"
                                                                 >start intro session</a>
-                                                                //     <Link
-                                                                //     onClick={this.toggleNav}
-                                                                //     className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
-                                                                //     to="/conference"
-                                                                // >
-                                                                //     <h4 className="btn btn-success" >Join Conference</h4>
-                                                                // </Link>
                                                             )}
                                                         />
                                                     ))}
