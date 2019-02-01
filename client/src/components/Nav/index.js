@@ -66,9 +66,9 @@ class NavAuth extends Component {
                                 <Link
                                     onClick={this.toggleNav}
                                     className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
-                                    to="/signup"
+                                    to="/"
                                 >
-                                    <h4 className="oswald-font">get started</h4>
+                                    <h4 className="oswald-font">home</h4>
                                 </Link>
                             </li>
                             <li className="nav-item mt-3">
@@ -87,7 +87,7 @@ class NavAuth extends Component {
                                     className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
                                     to="/account"
                                 >
-                                    <h4 className="oswald-font">account</h4>
+                                    <h4 className="oswald-font">my account</h4>
                                 </Link>
                             </li>
                             {/* 
