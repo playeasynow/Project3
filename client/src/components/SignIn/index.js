@@ -10,7 +10,7 @@ import "./style.css";
 const SignInPage = () => (
     <div className="container-fluid" id="sign-in-bg">
         <div className="container" id="sign-in-box">
-            <h1 className="lobster-font">account login</h1>
+            <h1 className="lobster-font">account login</h1><br></br>
             <SignInForm />
             <SignUpLink />
         </div>

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import * as ROUTES from "./constants/routes";
-import { withFirebase } from './components/Firebase';
+// import { withFirebase } from "./components/Firebase";
+// import { AuthUserContext } from "./components/Session";
+import { withAuthentication } from './components/Session';
 import Home from "./pages/Home";
 import Forms from "./pages/Forms";
 import AccountPage from "./pages/Dashboard";
@@ -15,49 +17,51 @@ import PasswordForgetPage from "./components/PasswordForget";
 import AdminPage from "./components/Admin";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-    this.state = {
-      authUser: null,
-    };
-  }
-  componentDidMount() {
-    this.listener = this.props.firebase.auth.onAuthStateChanged(
-      authUser => {
-        authUser
-          ? this.setState({ authUser })
-          : this.setState({ authUser: null });
-      }
-    );
-  }
+  //   this.state = {
+  //     authUser: null,
+  //   };
+  // }
+  // componentDidMount() {
+  //   this.listener = this.props.firebase.auth.onAuthStateChanged(
+  //     authUser => {
+  //       authUser
+  //         ? this.setState({ authUser })
+  //         : this.setState({ authUser: null });
+  //     }
+  //   );
+  // }
 
-  componentWillUnmount() {
-    this.listener();
-  }
+  // componentWillUnmount() {
+  //   this.listener();
+  // }
 
   render() {
     return (
-      <Router>
-        <div>
-          <Nav authUser={this.state.authUser} />
-          <Switch>
-            <Route exact path={ROUTES.LANDING} component={Home} />
-            <Route exact path={ROUTES.SIGN_UP} component={SignUpPage} />
-            <Route exact path={ROUTES.SIGN_IN} component={SignInPage} />
-            <Route exact path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
-            <Route exact path={ROUTES.HOME} component={Home} />
-            <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
-            <Route exact path={ROUTES.ADMIN} component={AdminPage} />
-            <Route exact path={ROUTES.SURVEY} component={Forms} />
-            <Route exact path={ROUTES.COACHES} component={Coaches} />
-            <Route exact path={ROUTES.CONFERENCE} component={Conference} />
-            <Route component={NoMatch} />
-          </Switch>
-        </div>
-      </Router>
+      // <AuthUserContext.Provider value={this.state.authUser}>
+        <Router>
+          <div>
+            <Nav />
+            <Switch>
+              <Route exact path={ROUTES.LANDING} component={Home} />
+              <Route exact path={ROUTES.SIGN_UP} component={SignUpPage} />
+              <Route exact path={ROUTES.SIGN_IN} component={SignInPage} />
+              <Route exact path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
+              <Route exact path={ROUTES.HOME} component={Home} />
+              <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
+              <Route exact path={ROUTES.ADMIN} component={AdminPage} />
+              <Route exact path={ROUTES.SURVEY} component={Forms} />
+              <Route exact path={ROUTES.COACHES} component={Coaches} />
+              <Route exact path={ROUTES.CONFERENCE} component={Conference} />
+              <Route component={NoMatch} />
+            </Switch>
+          </div>
+        </Router>
+      // </AuthUserContext.Provider>
     )
   }
 }
 
-export default withFirebase(App);
+export default withAuthentication(App);

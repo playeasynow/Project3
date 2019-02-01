@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { AuthUserContext } from '../Session';
 import SignOutButton from '../SignOut';
 import "./style.css";
 
-const Nav = ({ authUser }) => (
-    <div>{authUser ? <NavAuth /> : <NavNonAuth />}</div>
-  );
+const Nav = () => (
+    <div>
+        <AuthUserContext.Consumer>
+            {authUser =>
+                authUser ? <NavAuth /> : <NavNonAuth />}
+        </AuthUserContext.Consumer>
+    </div>
+);
 
 
 class NavAuth extends Component {
@@ -84,7 +90,7 @@ class NavAuth extends Component {
                                     <h4 className="oswald-font">account</h4>
                                 </Link>
                             </li>
-{/* 
+                            {/* 
                             <li className="nav-item mt-3">
                                 <Link
                                     onClick={this.toggleNav}
