@@ -126,7 +126,7 @@ class AccountPage extends Component {
                                                             Button2={() => (
                                                                 <a
                                                                     key={user._id}
-                                                                    href="https://scaledrone.github.io/webrtc/index.html"
+                                                                    href="https://playeasynow.github.io/video-chat/index.html"
                                                                     className="btn btn-success"
                                                                     target="_blank"
                                                                     rel="noopener noreferrer"
