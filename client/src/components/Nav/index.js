@@ -13,7 +13,6 @@ const Nav = () => (
     </div>
 );
 
-
 class NavAuth extends Component {
     state = {
         open: false,
@@ -44,7 +43,7 @@ class NavAuth extends Component {
     render() {
 
         return (
-            <nav className="navbar sticky-top navbar-expand-lg navbar-light">
+            <nav className="navbar navbar-expand-lg navbar-light">
                 <div className="container pl-0">
                     <Link className="navbar-brand pt-3 pb-0" to="/">
                         <div className="logo pb-2"></div>
@@ -90,18 +89,15 @@ class NavAuth extends Component {
                                     <h4 className="oswald-font">my account</h4>
                                 </Link>
                             </li>
-                            {/* 
-                            <li className="nav-item mt-3">
+
+                            <li className="nav-item mt-2">
                                 <Link
                                     onClick={this.toggleNav}
                                     className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
-                                    to="/signin"
+                                    to="/"
                                 >
-                                    <h4 className="oswald-font">login</h4>
+                                    <SignOutButton />
                                 </Link>
-                            </li> */}
-                            <li className="nav-item mt-3">
-                                <SignOutButton />
                             </li>
                         </ul>
                     </div>

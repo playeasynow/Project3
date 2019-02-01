@@ -4,7 +4,7 @@ import * as ROUTES from "./constants/routes";
 import { withAuthentication } from './components/Session';
 import Home from "./pages/Home";
 import Forms from "./pages/Forms";
-import AccountPage from "./pages/Dashboard";
+import AccountPage from "./pages/AccountPage";
 import Coaches from "./pages/Coaches";
 import NoMatch from "./pages/NoMatch";
 import Conference from "./pages/Conference";

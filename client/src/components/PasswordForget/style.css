@@ -1,10 +1,10 @@
-#sign-in-bg {
+#pw-forget-bg {
     background-color: white;
-    height: 100vh;
+    height: 88.5vh;
 }
 
-#sign-in-box {
-    padding-top: 10rem;
+#pw-forget-box {
+    padding-top: 5rem;
     width: 55rem;
 }
 
@@ -19,6 +19,6 @@
     font-family: 'Oswald', sans-serif;
 }
 
-.login {
+.pw {
     font-family: 'Oswald', sans-serif;
 }
