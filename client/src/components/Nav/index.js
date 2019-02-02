@@ -70,7 +70,7 @@ class NavAuth extends Component {
                                     <h4 className="oswald-font">home</h4>
                                 </Link>
                             </li>
-                            <li className="nav-item mt-3 hvr-reveal">
+                            {/* <li className="nav-item mt-3 hvr-reveal">
                                 <Link
                                     onClick={this.toggleNav}
                                     className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
@@ -78,7 +78,7 @@ class NavAuth extends Component {
                                 >
                                     <h4 className="oswald-font">for coaches</h4>
                                 </Link>
-                            </li>
+                            </li> */}
 
                             <li className="nav-item mt-3 hvr-reveal">
                                 <Link
@@ -165,7 +165,7 @@ class NavNonAuth extends Component {
                                     <h4 className="oswald-font">get started</h4>
                                 </Link>
                             </li>
-                            <li className="nav-item mt-3 hvr-reveal">
+                            {/* <li className="nav-item mt-3 hvr-reveal">
                                 <Link
                                     onClick={this.toggleNav}
                                     className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
@@ -173,7 +173,7 @@ class NavNonAuth extends Component {
                                 >
                                     <h4 className="oswald-font">for coaches</h4>
                                 </Link>
-                            </li>
+                            </li> */}
 
                             {/* <li className="nav-item mt-3">
                                 <Link
