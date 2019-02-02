@@ -22,7 +22,15 @@ class AccountPage extends Component {
             users: [],
             authUser: null,
             appointmentDates: [],
-            booked: false
+            firstCoach: "",
+            secondCoach: "",
+            thirdCoach: "",
+            firstBooking: {},
+            secondBooking: {},
+            thirdBooking: {},
+            firstRender: false,
+            secondRender: false,
+            thirdRender: false
         };
     }
 
@@ -30,27 +38,28 @@ class AccountPage extends Component {
         this.getMatches();
     };
 
-    // this.props.firebase.user().on('value', snapshot => {
-    //     const usersObject = snapshot.val();
-    //     console.log(usersObject);
-
-    //     const usersList = Object.keys(usersObject).map(key => ({
-    //         ...usersObject[key],
-    //         uid: key,
-    //     }));
-
-    //     this.setState({
-    //         users: usersList,
-    //         loading: false,
-    //     });
-    // });
-
-    displayCalendar = (userId) => {
+    displayCalendarOne = (userId) => {
         this.setState({
             displayCalendars: !this.state.displayCalendars,
             date: new Date(),
-            currentUser: userId
-        })
+            firstCoach: userId
+        });
+    };
+
+    displayCalendarTwo = (userId) => {
+        this.setState({
+            displayCalendars: !this.state.displayCalendars,
+            date: new Date(),
+            secondCoach: userId
+        });
+    };
+
+    displayCalendarThree = (userId) => {
+        this.setState({
+            displayCalendars: !this.state.displayCalendars,
+            date: new Date(),
+            thirdCoach: userId
+        });
     };
 
     getMatches = () => {
@@ -75,38 +84,19 @@ class AccountPage extends Component {
         this.setState({
             matches: userObj,
         });
-
-        // axios.get('https://project3-go-server.herokuapp.com/user/email', {
-        // headers: {
-        //     'Content-Type': 'application/json'
-        // },  userObj})
-        // .then(function (response) {
-        // // handle success
-        // console.log(response);
-        // })
-        // .catch(function (error) {
-        // // handle error
-        // console.log(error);
-        // })
-        // .then(function () {
-        // // always executed
-        // });
     };
 
     scheduleSession = () => {
-        // console.log(this.state.currentUser, "this is the user id")
-        console.log(this.state.date);
-
-        let appointmentBooking = {
-            coachID: this.state.currentUser,
+        let apptOne = {
+            coachID: this.state.firstCoach,
             bookingDate: this.state.date
-        }
+        };
+
         this.setState({
             displayCalendars: !this.state.displayCalendars,
-            appointmentDates: appointmentBooking,
-            booked: true
+            firstBooked: true,
+            firstBooking: apptOne
         });
-
     }
 
     onChangeDate = date => {
@@ -125,10 +115,10 @@ class AccountPage extends Component {
         };
 
         let appointment = null;
-        if (this.state.booked) {
+        if (this.state.firstBooked) {
             appointment = (
                 <div>
-                    <div className="container oswald-font">You booked:<br></br> {this.state.date.toDateString()} <br></br>{this.state.date.toLocaleTimeString('en-US', {hour12: true, hour: "numeric", minute: "numeric"})} </div>
+                    <div className="container oswald-font">You booked:<br></br> {this.state.date.toDateString()} <br></br>{this.state.date.toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" })} </div>
                 </div>
             )
         };
@@ -139,9 +129,8 @@ class AccountPage extends Component {
                     <Col size="md-12">
                         <div className="container-fluid" id="dashboard-bg">
                             <div className="container" id="dashboard-box">
-
                                 <div className="row">
-                                    <div className="col-8">
+                                    <div className="col">
                                         <h2 className="text-left mb-3 account-page">
                                             <strong><i>my account </i></strong>
                                         </h2>
@@ -150,35 +139,74 @@ class AccountPage extends Component {
                                         </AuthUserContext.Consumer> */}
                                     </div>
                                 </div>
-
                                 <div className="row">
                                     <div className="col-9">
-                                        <Card title="Your Matched Coaches:">
+                                        <Card title="Your Matched Coaches">
                                             {this.state.matches.length ? (
                                                 <List>
-                                                    {this.state.matches.map(user => (
-                                                        <User
-                                                            key={user._id}
-                                                            name={user.name}
-                                                            coachingTypes={user.coachingTypes.join(", ")}
-                                                            email={user.confirmedEmail}
-                                                            Button={() => (
-                                                                <button
-                                                                    onClick={() => this.displayCalendar(user._id)}
-                                                                    className="btn hvr-underline-from-center"
-                                                                    key={user._id}
-                                                                >schedule intro session</button>
-                                                            )}
-                                                            Button2={() => (
-                                                                <a
-                                                                    key={user._id}
-                                                                    href="https://playeasynow.github.io/video-chat/index.html"
-                                                                    className="btn hvr-underline-from-center"
-                                                                    target="_blank"
-                                                                    rel="noopener noreferrer"
-                                                                >start video chat</a>
-                                                            )}/>
-                                                    ))}
+                                                    <User
+                                                        key={this.state.matches[0]._id}
+                                                        name={this.state.matches[0].name}
+                                                        coachingTypes={this.state.matches[0].coachingTypes.join(", ")}
+                                                        email={this.state.matches[0].confirmedEmail}
+                                                        Button={() => (
+                                                            <button
+                                                                onClick={() => this.displayCalendarOne(this.state.matches[0]._id)}
+                                                                className="btn hvr-underline-from-center"
+                                                                key={this.state.matches[0]._id}
+                                                            >schedule intro session</button>
+                                                        )}
+                                                        Button2={() => (
+                                                            <a
+                                                                key={this.state.matches[0]._id}
+                                                                href="https://playeasynow.github.io/video-chat/index.html#f8b84f"
+                                                                className="btn hvr-underline-from-center"
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                            >start video chat</a>
+                                                        )} />
+                                                    <User
+                                                        key={this.state.matches[1]._id}
+                                                        name={this.state.matches[1].name}
+                                                        coachingTypes={this.state.matches[1].coachingTypes.join(", ")}
+                                                        email={this.state.matches[1].confirmedEmail}
+                                                        Button={() => (
+                                                            <button
+                                                                onClick={() => this.displayCalendarTwo(this.state.matches[1]._id)}
+                                                                className="btn hvr-underline-from-center"
+                                                                key={this.state.matches[1]._id}
+                                                            >schedule intro session</button>
+                                                        )}
+                                                        Button2={() => (
+                                                            <a
+                                                                key={this.state.matches[1]._id}
+                                                                href="https://playeasynow.github.io/video-chat/index.html#f33d3c"
+                                                                className="btn hvr-underline-from-center"
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                            >start video chat</a>
+                                                        )} />
+                                                    <User
+                                                        key={this.state.matches[2]._id}
+                                                        name={this.state.matches[2].name}
+                                                        coachingTypes={this.state.matches[2].coachingTypes.join(", ")}
+                                                        email={this.state.matches[2].confirmedEmail}
+                                                        Button={() => (
+                                                            <button
+                                                                onClick={() => this.displayCalendarThree(this.state.matches[2]._id)}
+                                                                className="btn hvr-underline-from-center"
+                                                                key={this.state.matches[2]._id}
+                                                            >schedule intro session</button>
+                                                        )}
+                                                        Button2={() => (
+                                                            <a
+                                                                key={this.state.matches[2]._id}
+                                                                href="https://playeasynow.github.io/video-chat/index.html#fa179c"
+                                                                className="btn hvr-underline-from-center"
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                            >start video chat</a>
+                                                        )} />
                                                 </List>
                                             ) : (
                                                     <h2 className="text-center">Your matches will load shortly.</h2>

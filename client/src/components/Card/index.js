@@ -11,7 +11,7 @@ function Card({ icon, title, children }) {
                 </strong>
                 </h3>
             </div>
-            <div className="card-body">{children}</div>
+            <div className="card-body pt-0">{children}</div>
         </div>
     );
 }
