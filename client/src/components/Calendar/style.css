@@ -2,6 +2,11 @@
     border: 1px solid black;
 }
 
-.schedule-session-btn {
-    
+.align-center {
+    padding-left: 1rem;
+    padding-top: 1.25rem;
+}
+
+.align-center-btn {
+    padding-left: 3.5rem;
 }

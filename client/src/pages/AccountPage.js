@@ -29,10 +29,7 @@ class AccountPage extends Component {
             thirdCoach: "",
             firstBooking: {},
             secondBooking: {},
-            thirdBooking: {},
-            firstRender: false,
-            secondRender: false,
-            thirdRender: false
+            thirdBooking: {}
         };
     }
 
@@ -163,27 +160,21 @@ class AccountPage extends Component {
         let apptOne = null;
         if (this.state.firstBooked) {
             apptOne = (
-                <div>
-                    <div className="container oswald-font">You booked:<br></br> {this.state.firstBooking.bookingDate.toDateString()} <br></br>{this.state.firstBooking.bookingDate.toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" })} </div>
-                </div>
+                <div className="container text-center appt-style text-white">You booked:<br></br> <span className="appt-text">{this.state.firstBooking.bookingDate.toDateString()} <br></br>{this.state.firstBooking.bookingDate.toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" })}</span> </div>
             )
         };
 
         let apptTwo = null;
         if (this.state.secondBooked) {
             apptTwo = (
-                <div>
-                    <div className="container oswald-font">You booked:<br></br> {this.state.secondBooking.bookingDate.toDateString()} <br></br>{this.state.secondBooking.bookingDate.toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" })} </div>
-                </div>
+                <div className="container text-center appt-style text-white">You booked:<br></br> <span className="appt-text">{this.state.secondBooking.bookingDate.toDateString()} <br></br>{this.state.secondBooking.bookingDate.toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" })}</span> </div>
             )
         };
 
         let apptThree = null;
         if (this.state.thirdBooked) {
             apptThree = (
-                <div>
-                    <div className="container oswald-font">You booked:<br></br> {this.state.thirdBooking.bookingDate.toDateString()} <br></br>{this.state.thirdBooking.bookingDate.toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" })} </div>
-                </div>
+                <div className="container text-center appt-style text-white">You booked:<br></br> <span className="appt-text">{this.state.thirdBooking.bookingDate.toDateString()} <br></br>{this.state.thirdBooking.bookingDate.toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" })}</span> </div>
             )
         };
 
@@ -233,7 +224,7 @@ class AccountPage extends Component {
                                                                 )} />
                                                         </div>
                                                         <div className="col-3">
-                                                        {calendarOne} {apptOne}
+                                                            {calendarOne} {apptOne}
                                                         </div>
                                                     </div>
                                                     <div className="row">
@@ -261,7 +252,7 @@ class AccountPage extends Component {
                                                                 )} />
                                                         </div>
                                                         <div className="col-3">
-                                                        {calendarTwo} {apptTwo}
+                                                            {calendarTwo} {apptTwo}
                                                         </div>
                                                     </div>
 
@@ -287,10 +278,10 @@ class AccountPage extends Component {
                                                                         target="_blank"
                                                                         rel="noopener noreferrer"
                                                                     >start video chat</a>
-                                                                )} /> 
+                                                                )} />
                                                         </div>
                                                         <div className="col-3">
-                                                        {calendarThree} {apptThree}
+                                                            {calendarThree} {apptThree}
                                                         </div>
                                                     </div>
                                                 </List>

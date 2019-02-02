@@ -279,3 +279,14 @@
 .typeform-widget {
     height: 32rem;
 }
+
+.appt-style {
+    background-color: darkcyan;
+    height: 75%;
+    padding: .5rem;
+    margin: .7rem;
+}
+
+.appt-text {
+    font-size: 1.25rem;
+}

@@ -25,7 +25,7 @@ function User({ name, email, coachingTypes, Button, Button2 }) {
             <Col size="md-8">
                 <p className="mt-2">{coachingTypes}</p>
             </Col>
-            <Col size="md-4">
+            <Col size="md-4 text-center">
                 <div className="btn-container">
                     <Button2 />
                 </div>
