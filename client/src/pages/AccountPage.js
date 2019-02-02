@@ -45,8 +45,6 @@ class AccountPage extends Component {
     //     });
     // });
 
-
-
     displayCalendar = (userId) => {
         this.setState({
             displayCalendars: !this.state.displayCalendars,
@@ -96,7 +94,7 @@ class AccountPage extends Component {
     };
 
     scheduleSession = () => {
-        console.log(this.state.currentUser, "this is the user id")
+        // console.log(this.state.currentUser, "this is the user id")
         console.log(this.state.date);
 
         let appointmentBooking = {
@@ -130,7 +128,7 @@ class AccountPage extends Component {
         if (this.state.booked) {
             appointment = (
                 <div>
-                    <div className="container">You booked:<br></br> {this.state.date.toDateString()}</div>
+                    <div className="container oswald-font">You booked:<br></br> {this.state.date.toDateString()} <br></br>{this.state.date.toLocaleTimeString('en-US', {hour12: true, hour: "numeric", minute: "numeric"})} </div>
                 </div>
             )
         };
@@ -187,7 +185,7 @@ class AccountPage extends Component {
                                                 )}
                                         </Card>
                                     </div>
-                                    <div className="col-3">
+                                    <div className="col-3 pr-0">
                                         <div className="container mt-5">
                                             {calendar}
                                             {appointment}

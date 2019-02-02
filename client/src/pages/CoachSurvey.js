@@ -60,7 +60,7 @@ class Forms extends Component {
                                     </div>
                                 </div>
 
-                                <div className="row mt-5">
+                                <div className="row mt-3">
                                     <div className="col text-center">
                                         <Link
                                             className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}

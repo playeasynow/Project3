@@ -39,7 +39,8 @@ class MyCalendar extends Component {
           onChange={this.props.onChangeDate}
           value={this.props.date}
         />
-        <button className="btn btn-primary" onClick={this.props.btnClickHandler}>Schedule Session!</button>
+        {/* <button className="btn btn-primary" >Schedule Session!</button> */}
+        <div className="container pr-0" onClick={this.props.btnClickHandler}><p className="btn animated infinite pulse hvr-underline-from-center pr-0 float-right" >schedule session</p></div>
       </div>
     );
   }
