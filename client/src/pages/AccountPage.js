@@ -20,7 +20,9 @@ class AccountPage extends Component {
             displayCalendars: false,
             date: new Date(),
             users: [],
-            authUser: null
+            authUser: null,
+            appointmentDates: [],
+            booked: false
         };
     }
 
@@ -96,9 +98,17 @@ class AccountPage extends Component {
     scheduleSession = () => {
         console.log(this.state.currentUser, "this is the user id")
         console.log(this.state.date);
+
+        let appointmentBooking = {
+            coachID: this.state.currentUser,
+            bookingDate: this.state.date
+        }
         this.setState({
-            displayCalendars: !this.state.displayCalendars
+            displayCalendars: !this.state.displayCalendars,
+            appointmentDates: appointmentBooking,
+            booked: true
         });
+
     }
 
     onChangeDate = date => {
@@ -116,20 +126,35 @@ class AccountPage extends Component {
             )
         };
 
+        let appointment = null;
+        if (this.state.booked) {
+            appointment = (
+                <div>
+                    <div className="container">You booked: {this.state.bookingDate}</div>
+                </div>
+            )
+        };
+
         return (
             <Container>
                 <Row>
                     <Col size="md-12">
                         <div className="container-fluid" id="dashboard-bg">
                             <div className="container" id="dashboard-box">
+
                                 <div className="row">
                                     <div className="col-8">
                                         <h2 className="text-left mb-3 account-page">
                                             <strong><i>my account </i></strong>
                                         </h2>
-                                        <AuthUserContext.Consumer>
+                                        {/* <AuthUserContext.Consumer>
                                             {authUser => authUser ? console.log(authUser) : "hello"}
-                                        </AuthUserContext.Consumer>
+                                        </AuthUserContext.Consumer> */}
+                                    </div>
+                                </div>
+
+                                <div className="row">
+                                    <div className="col-9">
                                         <Card title="Your Matched Coaches:">
                                             {this.state.matches.length ? (
                                                 <List>
@@ -154,30 +179,34 @@ class AccountPage extends Component {
                                                                     target="_blank"
                                                                     rel="noopener noreferrer"
                                                                 >start video chat</a>
-                                                            )}
-                                                        />
+                                                            )}/>
                                                     ))}
                                                 </List>
                                             ) : (
                                                     <h2 className="text-center">Your matches will load shortly.</h2>
                                                 )}
                                         </Card>
+                                    </div>
+                                    <div className="col-3">
+                                        <div className="container mt-5">
+                                            {calendar}
+                                            {appointment}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-8">
                                         <h4 className="mt-4" >Forgot your password?</h4>
                                         <PasswordForgetForm />
                                         <h4 className="mt-4" >Set new password?</h4>
                                         <PasswordChangeForm />
                                     </div>
-                                    <div className="col-4">
-                                        <div className="container mt-5">
-                                            {calendar}
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </Col>
-                </Row>
-            </Container>
+                </Row >
+            </Container >
         );
     }
 }
