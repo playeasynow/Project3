@@ -168,11 +168,9 @@ class Home extends Component {
                     <Link
                       className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
                       to="/signup">
-                      <div className="container"><p className="btn animated infinite pulse hvr-underline-from-center fourth-link" onClick={() => scrollToComponent(this.Three, { offset: 0, align: 'top', duration: 300, ease: 'inQuad' })}>start the questionnaire</p></div>
+                      <div className="container"><p className="btn animated infinite pulse hvr-underline-from-center fourth-link">start the questionnaire</p></div>
                     </Link>
-                    {/* <button className="btn btn-primary" >Go to Top</button> */}
                     <div className="container"><p className="btn hvr-underline-from-center fourth-link" onClick={this.scrollToTopWithCallback}>back to the top</p></div>
-
                   </div>
                 </div>
               </div>

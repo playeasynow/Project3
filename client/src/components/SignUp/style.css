@@ -18,3 +18,11 @@
 .form-control, .btn {
     font-family: 'Oswald', sans-serif;
 }
+
+.oswald-font {
+    font-family: 'Oswald', sans-serif;
+}
+
+.label-padding {
+    padding-right: 0;
+}

@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import * as ROUTES from "./constants/routes";
 import { withAuthentication } from './components/Session';
 import Home from "./pages/Home";
-import Survey from "./pages/Survey";
+import ClientSurvey from "./pages/ClientSurvey";
+import CoachSurvey from "./pages/CoachSurvey";
 import AccountPage from "./pages/AccountPage";
 import NoMatch from "./pages/NoMatch";
 import Conference from "./pages/Conference";
@@ -27,7 +28,8 @@ class App extends Component {
               <Route exact path={ROUTES.HOME} component={Home} />
               <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
               <Route exact path={ROUTES.ADMIN} component={AdminPage} />
-              <Route exact path={ROUTES.SURVEY} component={Survey} />
+              <Route exact path={ROUTES.CLIENTSURVEY} component={ClientSurvey} />
+              <Route exact path={ROUTES.COACHSURVEY} component={CoachSurvey} />
               <Route exact path={ROUTES.CONFERENCE} component={Conference} />
               <Route component={NoMatch} />
             </Switch>

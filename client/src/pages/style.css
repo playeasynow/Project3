@@ -110,6 +110,15 @@
     border: 3px solid black;
 }
 
+#survey-box {
+    margin-top: 8.5rem;
+    padding: 2rem;
+    width: 68.25%;
+    margin-bottom: 5rem;
+    height: 80vh;
+    border: 3px solid black;
+}
+
 /* Reveal */
 .hvr-reveal {
     display: inline-block;
@@ -256,6 +265,10 @@
 
   .fourth-link {
       font-size: 1.5rem;
+  }
+
+  .gather-matches-link {
+      font-size: 1.3rem;
   }
 
 .fourth-col {

@@ -3,7 +3,7 @@ import Card from "../components/Card";
 import User from "../components/User";
 import Calendar from "../components/Calendar";
 import { withFirebase } from '../components/Firebase';
-import { AuthUserContext } from '../components/Session';
+// import { AuthUserContext } from '../components/Session';
 // import Footer from "../components/Footer";
 import { PasswordForgetForm } from '../components/PasswordForget';
 import PasswordChangeForm from '../components/PasswordChange';
@@ -130,7 +130,7 @@ class AccountPage extends Component {
         if (this.state.booked) {
             appointment = (
                 <div>
-                    <div className="container">You booked: {this.state.bookingDate}</div>
+                    <div className="container">You booked:<br></br> {this.state.date.toDateString()}</div>
                 </div>
             )
         };
@@ -196,9 +196,9 @@ class AccountPage extends Component {
                                 </div>
                                 <div className="row">
                                     <div className="col-8">
-                                        <h4 className="mt-4" >Forgot your password?</h4>
+                                        <h4 className="mt-4 oswald-font" >Forgot your password?</h4>
                                         <PasswordForgetForm />
-                                        <h4 className="mt-4" >Set new password?</h4>
+                                        <h4 className="mt-4 oswald-font" >Set new password?</h4>
                                         <PasswordChangeForm />
                                     </div>
                                 </div>

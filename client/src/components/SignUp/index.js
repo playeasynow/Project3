@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
+import axios from "axios";
 import "./style.css";
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
@@ -15,8 +16,9 @@ const SignUpPage = () => (
 );
 
 const INITIAL_STATE = {
-    username: '',
+    name: '',
     email: '',
+    user: "",
     passwordOne: '',
     passwordTwo: '',
     error: null,
@@ -30,7 +32,7 @@ class SignUpFormBase extends Component {
     };
 
     onSubmit = event => {
-        const { username, email, passwordOne } = this.state;
+        const { name, email, user, passwordOne } = this.state;
 
         this.props.firebase
             .doCreateUserWithEmailAndPassword(email, passwordOne)
@@ -39,30 +41,59 @@ class SignUpFormBase extends Component {
                 return this.props.firebase
                     .user(authUser.user.uid)
                     .set({
-                        username,
+                        name,
                         email,
                     });
             })
             .then(() => {
                 this.setState({ ...INITIAL_STATE });
-                this.props.history.push(ROUTES.SURVEY);
+                return (user === "client") ? this.props.history.push(ROUTES.CLIENTSURVEY) : this.props.history.push(ROUTES.COACHSURVEY);
             })
             .catch(error => {
                 this.setState({ error });
-            });
+            });        
+
+        let userObj = {
+            name: name,
+            user: user,
+            confirmedEmail: email
+        };
+
+        axios.post('https://project3-go-server.herokuapp.com/newuser', userObj, {
+        headers: {
+            'Content-Type': 'application/json'
+        }})
+        .then(function (response) {
+        // handle success
+        console.log(response);
+        })
+        .catch(function (error) {
+        // handle error
+        console.log(error);
+        })
+        .then(function () {
+        // always executed
+        });
 
         event.preventDefault();
-
     }
 
     onChange = event => {
         this.setState({ [event.target.name]: event.target.value });
     };
 
+    onChangeRadio = event => {
+        let user = event.target.value;
+        this.setState({
+            user: user,
+        });
+    };
+
     render() {
         const {
-            username,
+            name,
             email,
+            user,
             passwordOne,
             passwordTwo,
             error,
@@ -71,16 +102,17 @@ class SignUpFormBase extends Component {
         const isInvalid =
             passwordOne !== passwordTwo ||
             passwordOne === '' ||
+            user === '' ||
             email === '' ||
-            username === '';
+            name === '';
 
         return (
             <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                     <input
                         className="form-control"
-                        name="username"
-                        value={username}
+                        name="name"
+                        value={name}
                         onChange={this.onChange}
                         type="text"
                         placeholder="full name"
@@ -97,6 +129,24 @@ class SignUpFormBase extends Component {
                         placeholder="email address"
                     />
                 </div>
+
+                <fieldset className="form-group oswald-font">
+                    <div className="row mt-2 pl-1">
+                        <legend className="col-form-label col-sm-2 pt-0 label-padding">client or coach?</legend>
+                        <div className="col-sm-10">
+                            <div className="form-check custom-control-inline">
+                                <input onChange={this.onChangeRadio} className="form-check-input" type="radio" name="gridRadios" value="client" />
+                                <label className="form-check-label">
+                                    client</label>
+                            </div>
+                            <div className="form-check custom-control-inline">
+                                <input onChange={this.onChangeRadio} className="form-check-input" type="radio" name="gridRadios" value="coach" />
+                                <label className="form-check-label">
+                                    coach</label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
 
                 <div className="form-group">
                     <input
