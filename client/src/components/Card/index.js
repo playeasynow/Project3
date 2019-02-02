@@ -4,10 +4,10 @@ import "./style.css";
 function Card({ icon, title, children }) {
     return(
         <div className="card mt-4">
-            <div className="card-header bg-dark text-white">
+            <div className="card-header coach-header">
                 <h3>
                 <strong>
-                    <i className={`fas fa-${icon}`} aria-hidden="true" /> {title}
+                    <i aria-hidden="true" /> {title}
                 </strong>
                 </h3>
             </div>

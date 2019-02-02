@@ -120,7 +120,7 @@ class Home extends Component {
 
                   </div>
                 </div>
-                <div className="container"><p className="btn animated infinite pulse hvr-underline-from-center our-coaches" onClick={() => scrollToComponent(this.Three, { offset: 0, align: 'top', duration: 300, ease: 'inQuad' })}>the questionnaire</p></div>
+                <div className="container"><p className="btn animated infinite pulse hvr-underline-from-center our-coaches" onClick={() => scrollToComponent(this.Three, { offset: 0, align: 'top', duration: 300, ease: 'inQuad' })}>matching process</p></div>
               </div>
             </div>
           </Col>
@@ -171,7 +171,7 @@ class Home extends Component {
                       <div className="container"><p className="btn animated infinite pulse hvr-underline-from-center fourth-link" onClick={() => scrollToComponent(this.Three, { offset: 0, align: 'top', duration: 300, ease: 'inQuad' })}>start the questionnaire</p></div>
                     </Link>
                     {/* <button className="btn btn-primary" >Go to Top</button> */}
-                    <div className="container"><p className="btn animated infinite pulse hvr-underline-from-center fourth-link" onClick={this.scrollToTopWithCallback}>back to the top</p></div>
+                    <div className="container"><p className="btn hvr-underline-from-center fourth-link" onClick={this.scrollToTopWithCallback}>back to the top</p></div>
 
                   </div>
                 </div>

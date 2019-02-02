@@ -16,10 +16,16 @@
     height: 400px;
 }
 
+.account-page {
+    border: 3px solid black;
+    padding: 1rem;
+    font-family: 'Lobster', cursive;
+}
+
 .border-box {
     border: 3px solid black;
     height: 81vh;
-    width: 68%;
+    width: 68.25%;
     background-color: white;
     padding-top: 5rem;
     font-family: 'Oswald', sans-serif;
@@ -27,6 +33,7 @@
 
 .headline {
     font-family: 'Lobster', cursive;
+    color: darkcyan;
 }
 
 .next-page {
@@ -92,11 +99,15 @@
 
 #dashboard-bg {
     background-color: white;
-    height: 140vh;
 }
 
 #dashboard-box {
-    padding-top: 9rem;
+    margin-top: 8.5rem;
+    padding: 2rem;
+    width: 68.25%;
+    margin-bottom: 5rem;
+    height: 120vh;
+    border: 3px solid black;
 }
 
 /* Reveal */
@@ -170,13 +181,11 @@
 
   .first-headline {
     animation-duration: 3s;
-    color: darkcyan;
   }
 
   .second-headline {
     animation-duration: 3s;
     animation-delay: 2s;
-    color: darkcyan;
   }
 
   .giphy-match {

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Card from "../components/Card";
 import User from "../components/User";
 import Calendar from "../components/Calendar";
+import { withFirebase } from '../components/Firebase';
+import { AuthUserContext } from '../components/Session';
 // import Footer from "../components/Footer";
 import { PasswordForgetForm } from '../components/PasswordForget';
 import PasswordChangeForm from '../components/PasswordChange';
@@ -10,15 +12,38 @@ import { List } from "../components/List";
 import "./style.css";
 
 class AccountPage extends Component {
-    state = {
-        matches: [],
-        displayCalendars: false,
-        date: new Date()
-    };
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            matches: [],
+            displayCalendars: false,
+            date: new Date(),
+            users: [],
+            authUser: null
+        };
+    }
 
     componentDidMount() {
         this.getMatches();
     };
+
+    // this.props.firebase.user().on('value', snapshot => {
+    //     const usersObject = snapshot.val();
+    //     console.log(usersObject);
+
+    //     const usersList = Object.keys(usersObject).map(key => ({
+    //         ...usersObject[key],
+    //         uid: key,
+    //     }));
+
+    //     this.setState({
+    //         users: usersList,
+    //         loading: false,
+    //     });
+    // });
+
+
 
     displayCalendar = (userId) => {
         this.setState({
@@ -99,10 +124,13 @@ class AccountPage extends Component {
                             <div className="container" id="dashboard-box">
                                 <div className="row">
                                     <div className="col-8">
-                                        <h2 className="text-left mb-3">
-                                            <strong><i>Hi, Hannah! </i></strong>
+                                        <h2 className="text-left mb-3 account-page">
+                                            <strong><i>my account </i></strong>
                                         </h2>
-                                        <Card title="Here are your matches:" icon="user-circle">
+                                        <AuthUserContext.Consumer>
+                                            {authUser => authUser ? console.log(authUser) : "hello"}
+                                        </AuthUserContext.Consumer>
+                                        <Card title="Your Matched Coaches:">
                                             {this.state.matches.length ? (
                                                 <List>
                                                     {this.state.matches.map(user => (
@@ -114,7 +142,7 @@ class AccountPage extends Component {
                                                             Button={() => (
                                                                 <button
                                                                     onClick={() => this.displayCalendar(user._id)}
-                                                                    className="btn btn-primary"
+                                                                    className="btn hvr-underline-from-center"
                                                                     key={user._id}
                                                                 >schedule intro session</button>
                                                             )}
@@ -122,10 +150,10 @@ class AccountPage extends Component {
                                                                 <a
                                                                     key={user._id}
                                                                     href="https://playeasynow.github.io/video-chat/index.html"
-                                                                    className="btn btn-success"
+                                                                    className="btn hvr-underline-from-center"
                                                                     target="_blank"
                                                                     rel="noopener noreferrer"
-                                                                >start intro session</a>
+                                                                >start video chat</a>
                                                             )}
                                                         />
                                                     ))}
@@ -154,4 +182,4 @@ class AccountPage extends Component {
     }
 }
 
-export default AccountPage;
+export default withFirebase(AccountPage);

@@ -5,7 +5,6 @@ import { withAuthentication } from './components/Session';
 import Home from "./pages/Home";
 import Survey from "./pages/Survey";
 import AccountPage from "./pages/AccountPage";
-import Coaches from "./pages/Coaches";
 import NoMatch from "./pages/NoMatch";
 import Conference from "./pages/Conference";
 import Nav from "./components/Nav";
@@ -29,7 +28,6 @@ class App extends Component {
               <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
               <Route exact path={ROUTES.ADMIN} component={AdminPage} />
               <Route exact path={ROUTES.SURVEY} component={Survey} />
-              <Route exact path={ROUTES.COACHES} component={Coaches} />
               <Route exact path={ROUTES.CONFERENCE} component={Conference} />
               <Route component={NoMatch} />
             </Switch>

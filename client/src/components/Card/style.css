@@ -1,3 +1,9 @@
 .card-header:first-child {
     border-radius: 0;
 }
+
+.coach-header {
+    background-color: white;
+    font-family: 'Oswald', sans-serif;
+    padding-bottom: 0;
+}
