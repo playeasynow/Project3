@@ -17,7 +17,9 @@ class AccountPage extends Component {
 
         this.state = {
             matches: [],
-            displayCalendars: false,
+            displayCalendarOne: false,
+            displayCalendarTwo: false,
+            displayCalendarThree: false,
             date: new Date(),
             users: [],
             authUser: null,
@@ -40,7 +42,7 @@ class AccountPage extends Component {
 
     displayCalendarOne = (userId) => {
         this.setState({
-            displayCalendars: !this.state.displayCalendars,
+            displayCalendarOne: !this.state.displayCalendarOne,
             date: new Date(),
             firstCoach: userId
         });
@@ -48,7 +50,7 @@ class AccountPage extends Component {
 
     displayCalendarTwo = (userId) => {
         this.setState({
-            displayCalendars: !this.state.displayCalendars,
+            displayCalendarTwo: !this.state.displayCalendarTwo,
             date: new Date(),
             secondCoach: userId
         });
@@ -56,7 +58,7 @@ class AccountPage extends Component {
 
     displayCalendarThree = (userId) => {
         this.setState({
-            displayCalendars: !this.state.displayCalendars,
+            displayCalendarThree: !this.state.displayCalendarThree,
             date: new Date(),
             thirdCoach: userId
         });
@@ -86,16 +88,42 @@ class AccountPage extends Component {
         });
     };
 
-    scheduleSession = () => {
-        let apptOne = {
+    scheduleSessionOne = () => {
+        let appt = {
             coachID: this.state.firstCoach,
             bookingDate: this.state.date
         };
 
         this.setState({
-            displayCalendars: !this.state.displayCalendars,
+            displayCalendarOne: !this.state.displayCalendarOne,
             firstBooked: true,
-            firstBooking: apptOne
+            firstBooking: appt
+        });
+    }
+
+    scheduleSessionTwo = () => {
+        let appt = {
+            coachID: this.state.secondCoach,
+            bookingDate: this.state.date
+        };
+
+        this.setState({
+            displayCalendarTwo: !this.state.displayCalendarTwo,
+            secondBooked: true,
+            secondBooking: appt
+        });
+    }
+
+    scheduleSessionThree = () => {
+        let appt = {
+            coachID: this.state.thirdCoach,
+            bookingDate: this.state.date
+        };
+
+        this.setState({
+            displayCalendarThree: !this.state.displayCalendarThree,
+            thirdBooked: true,
+            thirdBooking: appt
         });
     }
 
@@ -105,20 +133,56 @@ class AccountPage extends Component {
 
     render() {
 
-        let calendar = null;
-        if (this.state.displayCalendars) {
-            calendar = (
+        let calendarOne = null;
+        if (this.state.displayCalendarOne) {
+            calendarOne = (
                 <div>
-                    <Calendar date={this.state.date} onChangeDate={this.onChangeDate} btnClickHandler={() => this.scheduleSession()} />
+                    <Calendar date={this.state.date} onChangeDate={this.onChangeDate} btnClickHandler={() => this.scheduleSessionOne()} />
                 </div>
             )
         };
 
-        let appointment = null;
-        if (this.state.firstBooked) {
-            appointment = (
+        let calendarTwo = null;
+        if (this.state.displayCalendarTwo) {
+            calendarTwo = (
                 <div>
-                    <div className="container oswald-font">You booked:<br></br> {this.state.date.toDateString()} <br></br>{this.state.date.toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" })} </div>
+                    <Calendar date={this.state.date} onChangeDate={this.onChangeDate} btnClickHandler={() => this.scheduleSessionTwo()} />
+                </div>
+            )
+        };
+
+        let calendarThree = null;
+        if (this.state.displayCalendarThree) {
+            calendarThree = (
+                <div>
+                    <Calendar date={this.state.date} onChangeDate={this.onChangeDate} btnClickHandler={() => this.scheduleSessionThree()} />
+                </div>
+            )
+        };
+
+        let apptOne = null;
+        if (this.state.firstBooked) {
+            apptOne = (
+                <div>
+                    <div className="container oswald-font">You booked:<br></br> {this.state.firstBooking.bookingDate.toDateString()} <br></br>{this.state.firstBooking.bookingDate.toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" })} </div>
+                </div>
+            )
+        };
+
+        let apptTwo = null;
+        if (this.state.secondBooked) {
+            apptTwo = (
+                <div>
+                    <div className="container oswald-font">You booked:<br></br> {this.state.secondBooking.bookingDate.toDateString()} <br></br>{this.state.secondBooking.bookingDate.toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" })} </div>
+                </div>
+            )
+        };
+
+        let apptThree = null;
+        if (this.state.thirdBooked) {
+            apptThree = (
+                <div>
+                    <div className="container oswald-font">You booked:<br></br> {this.state.thirdBooking.bookingDate.toDateString()} <br></br>{this.state.thirdBooking.bookingDate.toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" })} </div>
                 </div>
             )
         };
@@ -140,84 +204,100 @@ class AccountPage extends Component {
                                     </div>
                                 </div>
                                 <div className="row">
-                                    <div className="col-9">
+                                    <div className="col">
                                         <Card title="Your Matched Coaches">
                                             {this.state.matches.length ? (
                                                 <List>
-                                                    <User
-                                                        key={this.state.matches[0]._id}
-                                                        name={this.state.matches[0].name}
-                                                        coachingTypes={this.state.matches[0].coachingTypes.join(", ")}
-                                                        email={this.state.matches[0].confirmedEmail}
-                                                        Button={() => (
-                                                            <button
-                                                                onClick={() => this.displayCalendarOne(this.state.matches[0]._id)}
-                                                                className="btn hvr-underline-from-center"
+                                                    <div className="row">
+                                                        <div className="col-9">
+                                                            <User
                                                                 key={this.state.matches[0]._id}
-                                                            >schedule intro session</button>
-                                                        )}
-                                                        Button2={() => (
-                                                            <a
-                                                                key={this.state.matches[0]._id}
-                                                                href="https://playeasynow.github.io/video-chat/index.html#f8b84f"
-                                                                className="btn hvr-underline-from-center"
-                                                                target="_blank"
-                                                                rel="noopener noreferrer"
-                                                            >start video chat</a>
-                                                        )} />
-                                                    <User
-                                                        key={this.state.matches[1]._id}
-                                                        name={this.state.matches[1].name}
-                                                        coachingTypes={this.state.matches[1].coachingTypes.join(", ")}
-                                                        email={this.state.matches[1].confirmedEmail}
-                                                        Button={() => (
-                                                            <button
-                                                                onClick={() => this.displayCalendarTwo(this.state.matches[1]._id)}
-                                                                className="btn hvr-underline-from-center"
+                                                                name={this.state.matches[0].name}
+                                                                coachingTypes={this.state.matches[0].coachingTypes.join(", ")}
+                                                                email={this.state.matches[0].confirmedEmail}
+                                                                Button={() => (
+                                                                    <button
+                                                                        onClick={() => this.displayCalendarOne(this.state.matches[0]._id)}
+                                                                        className="btn hvr-underline-from-center"
+                                                                        key={this.state.matches[0]._id}
+                                                                    >schedule intro session</button>
+                                                                )}
+                                                                Button2={() => (
+                                                                    <a
+                                                                        key={this.state.matches[0]._id}
+                                                                        href="https://playeasynow.github.io/video-chat/index.html#f8b84f"
+                                                                        className="btn hvr-underline-from-center"
+                                                                        target="_blank"
+                                                                        rel="noopener noreferrer"
+                                                                    >start video chat</a>
+                                                                )} />
+                                                        </div>
+                                                        <div className="col-3">
+                                                        {calendarOne} {apptOne}
+                                                        </div>
+                                                    </div>
+                                                    <div className="row">
+                                                        <div className="col-9">
+                                                            <User
                                                                 key={this.state.matches[1]._id}
-                                                            >schedule intro session</button>
-                                                        )}
-                                                        Button2={() => (
-                                                            <a
-                                                                key={this.state.matches[1]._id}
-                                                                href="https://playeasynow.github.io/video-chat/index.html#f33d3c"
-                                                                className="btn hvr-underline-from-center"
-                                                                target="_blank"
-                                                                rel="noopener noreferrer"
-                                                            >start video chat</a>
-                                                        )} />
-                                                    <User
-                                                        key={this.state.matches[2]._id}
-                                                        name={this.state.matches[2].name}
-                                                        coachingTypes={this.state.matches[2].coachingTypes.join(", ")}
-                                                        email={this.state.matches[2].confirmedEmail}
-                                                        Button={() => (
-                                                            <button
-                                                                onClick={() => this.displayCalendarThree(this.state.matches[2]._id)}
-                                                                className="btn hvr-underline-from-center"
+                                                                name={this.state.matches[1].name}
+                                                                coachingTypes={this.state.matches[1].coachingTypes.join(", ")}
+                                                                email={this.state.matches[1].confirmedEmail}
+                                                                Button={() => (
+                                                                    <button
+                                                                        onClick={() => this.displayCalendarTwo(this.state.matches[1]._id)}
+                                                                        className="btn hvr-underline-from-center"
+                                                                        key={this.state.matches[1]._id}
+                                                                    >schedule intro session</button>
+                                                                )}
+                                                                Button2={() => (
+                                                                    <a
+                                                                        key={this.state.matches[1]._id}
+                                                                        href="https://playeasynow.github.io/video-chat/index.html#f33d3c"
+                                                                        className="btn hvr-underline-from-center"
+                                                                        target="_blank"
+                                                                        rel="noopener noreferrer"
+                                                                    >start video chat</a>
+                                                                )} />
+                                                        </div>
+                                                        <div className="col-3">
+                                                        {calendarTwo} {apptTwo}
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="row">
+                                                        <div className="col-9">
+                                                            <User
                                                                 key={this.state.matches[2]._id}
-                                                            >schedule intro session</button>
-                                                        )}
-                                                        Button2={() => (
-                                                            <a
-                                                                key={this.state.matches[2]._id}
-                                                                href="https://playeasynow.github.io/video-chat/index.html#fa179c"
-                                                                className="btn hvr-underline-from-center"
-                                                                target="_blank"
-                                                                rel="noopener noreferrer"
-                                                            >start video chat</a>
-                                                        )} />
+                                                                name={this.state.matches[2].name}
+                                                                coachingTypes={this.state.matches[2].coachingTypes.join(", ")}
+                                                                email={this.state.matches[2].confirmedEmail}
+                                                                Button={() => (
+                                                                    <button
+                                                                        onClick={() => this.displayCalendarThree(this.state.matches[2]._id)}
+                                                                        className="btn hvr-underline-from-center"
+                                                                        key={this.state.matches[2]._id}
+                                                                    >schedule intro session</button>
+                                                                )}
+                                                                Button2={() => (
+                                                                    <a
+                                                                        key={this.state.matches[2]._id}
+                                                                        href="https://playeasynow.github.io/video-chat/index.html#fa179c"
+                                                                        className="btn hvr-underline-from-center"
+                                                                        target="_blank"
+                                                                        rel="noopener noreferrer"
+                                                                    >start video chat</a>
+                                                                )} /> 
+                                                        </div>
+                                                        <div className="col-3">
+                                                        {calendarThree} {apptThree}
+                                                        </div>
+                                                    </div>
                                                 </List>
                                             ) : (
                                                     <h2 className="text-center">Your matches will load shortly.</h2>
                                                 )}
                                         </Card>
-                                    </div>
-                                    <div className="col-3 pr-0">
-                                        <div className="container mt-5">
-                                            {calendar}
-                                            {appointment}
-                                        </div>
                                     </div>
                                 </div>
                                 <div className="row">
