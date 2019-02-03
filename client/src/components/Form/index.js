@@ -1,7 +1,7 @@
 import React from "react";
 // import Typeform from "../Typeform";
 
-function Form({ fname, lname, pword, email, handleInputChange, handleFormSubmit, handleInputChangeRadio}) {
+function Form({ fname, lname, email, handleInputChange, handleFormSubmit, handleInputChangeRadio}) {
     return (
         <form>
             <div className="form-group row">
@@ -20,7 +20,7 @@ function Form({ fname, lname, pword, email, handleInputChange, handleFormSubmit,
             <div className="form-group row">
                 <div className="col-sm-8">
                     <label>Password</label>
-                    <input onChange={handleInputChange} value={pword} name="pword" type="password" className="form-control" placeholder="Password" />
+                    <input onChange={handleInputChange} name="pword" type="password" className="form-control" placeholder="Password" />
                 </div>
             </div>
 

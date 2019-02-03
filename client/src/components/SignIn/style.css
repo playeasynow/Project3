@@ -1,0 +1,24 @@
+#sign-in-bg {
+    background-color: white;
+    height: 100vh;
+}
+
+#sign-in-box {
+    padding-top: 10rem;
+    width: 55rem;
+}
+
+.lobster-font {
+    font-family: 'Lobster', cursive;
+    border: .20rem solid black;
+    padding: 1rem;
+    font-style: italic;
+}
+
+.form-control, p {
+    font-family: 'Oswald', sans-serif;
+}
+
+.login {
+    font-family: 'Oswald', sans-serif;
+}

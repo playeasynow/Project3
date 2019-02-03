@@ -1,3 +1,12 @@
 .list-group-item p {
     font-size: 16px;
 }
+
+.list-border {
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    border-right: 0;
+    border-left: 0;
+    border-top: 0;
+    margin-top: 1px;
+    padding-bottom: 0;
+}

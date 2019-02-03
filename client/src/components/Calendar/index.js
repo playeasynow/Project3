@@ -8,41 +8,15 @@ class MyCalendar extends Component {
     date: new Date()
   }
 
-  onChangeDate = date => {
-    this.setState({ date });
-  } 
-
-  scheduleSession = event => {
-    console.log(this.state.date);
-    console.log(this.props.key);
-
-    // alert("Great! You have booked " + this.state.date + "." );
-    // console.log(this.props.displayCalendars);
-        // axios.post('https://project3-go-server.herokuapp.com/user/:email', {
-        // headers: {
-        //     'Content-Type': 'application/json'
-        // },  userObj})
-        // .then(function (response) {
-        // // handle success
-        // console.log(response);
-        // })
-        // .catch(function (error) {
-        // // handle error
-        // console.log(error);
-        // })
-        // .then(function () {
-        // // always executed
-        // });
-  }
-
   render() {
     return (
       <div>
         <DateTimePicker
-          onChange={this.onChangeDate}
-          value={this.state.date}
+          onChange={this.props.onChangeDate}
+          value={this.props.date}
+          className="align-center"
         />
-        <button className="btn btn-primary" onClick={this.scheduleSession}>Schedule Session!</button>
+        <div className="container align-center-btn" onClick={this.props.btnClickHandler}><p className="btn animated infinite pulse hvr-underline-from-center" >schedule session</p></div>
       </div>
     );
   }

@@ -1,0 +1,28 @@
+#sign-up-bg {
+    background-color: white;
+    height: 100vh;
+}
+
+#sign-up-box {
+    padding-top: 10rem;
+    width: 55rem;
+}
+
+.lobster-font {
+    font-family: 'Lobster', cursive;
+    border: .20rem solid black;
+    padding: 1rem;
+    font-style: italic;
+}
+
+.form-control, .btn {
+    font-family: 'Oswald', sans-serif;
+}
+
+.oswald-font {
+    font-family: 'Oswald', sans-serif;
+}
+
+.label-padding {
+    padding-right: 0;
+}

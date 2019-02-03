@@ -26,20 +26,9 @@ class Forms extends Component {
                                     </h2>
                                 </div>
                             </div>
-                            <div className="row">
-                                <div className="col">
-                                    <video id="localVideo" autoPlay muted></video>
-                                    <video id="remoteVideo" autoPlay></video>
-                                </div>
-                            </div>
                         </div>
                     </Col>
                 </Row>
-                {/* <Row>
-                    <Col size="md-12">
-
-                    </Col>
-                </Row> */}
             </Container>
         );
     }

@@ -18,14 +18,14 @@ function User({ name, email, coachingTypes, Button, Button2 }) {
         </Row>
         <Row>
             <Col size="md-8">
-                <p className="font-italic small">Email: {email}</p>
+                <a className="font-italic small" target="_top" href={email}>{email}</a>
             </Col>
         </Row>
         <Row>
             <Col size="md-8">
-                <p>{coachingTypes}</p>
+                <p className="mt-2">{coachingTypes}</p>
             </Col>
-            <Col size="md-4">
+            <Col size="md-4 text-center">
                 <div className="btn-container">
                     <Button2 />
                 </div>
