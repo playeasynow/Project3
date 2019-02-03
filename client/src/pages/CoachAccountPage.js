@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Card from "../components/Card";
 import User from "../components/User";
 import Calendar from "../components/Calendar";
-import axios from "axios";
+// import axios from "axios";
 import { withFirebase } from '../components/Firebase';
 import * as firebase from 'firebase';
 // import Footer from "../components/Footer";
@@ -38,7 +38,6 @@ class AccountPage extends Component {
     }
 
     getMatches = (email) => {
-        // let email = this.state.email;
 
         // axios.get('https://project3-go-server.herokuapp.com/matches/'+ email)
         // .then(function (response) {

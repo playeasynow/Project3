@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import Card from "../components/Card";
 import User from "../components/User";
 import Calendar from "../components/Calendar";
+// import axios from "axios";
 import { withFirebase } from '../components/Firebase';
-// import { AuthUserContext } from '../components/Session';
+import * as firebase from 'firebase';
 // import Footer from "../components/Footer";
 import { PasswordForgetForm } from '../components/PasswordForget';
 import PasswordChangeForm from '../components/PasswordChange';
@@ -29,11 +30,29 @@ class AccountPage extends Component {
             thirdCoach: "",
             firstBooking: {},
             secondBooking: {},
-            thirdBooking: {}
+            thirdBooking: {},
+            userID: null,
+            username: "",
+            email: ""
         };
     }
 
     getMatches = () => {
+        // let email = this.state.email;
+
+        // axios.get('https://project3-go-server.herokuapp.com/matches/'+ email)
+        // .then(function (response) {
+        //   // handle success
+        //   console.log(response);
+        // })
+        // .catch(function (error) {
+        //   // handle error
+        //   console.log(error);
+        // })
+        // .then(function () {
+        //   // always executed
+        // }); 
+
         let userObj = [{
             _id: "abxcsw",
             name: "Trisha Wheeler",
@@ -58,8 +77,35 @@ class AccountPage extends Component {
     };
 
     componentDidMount() {
-        this.getMatches();
+        firebase.auth().onAuthStateChanged(userFB => {
+            if (userFB) {
+                // console.log('This is the user: ', userFB)
+                this.setState({
+                    userID: userFB.uid,
+                    email: userFB.email
+                });
+                this.searchFirebase(userFB.uid);
+                this.getMatches(userFB.email);
+            }
+        });
     };
+
+    searchFirebase(userFBuid) {
+        var self = this;
+        firebase.database().ref('/users/' + userFBuid).once('value').then(function (snapshot) {
+            const username = (snapshot.val() && snapshot.val().name) || 'Anonymous';
+            const user = (snapshot.val() && snapshot.val().user) || 'Anonymous';
+            const apptOne = (snapshot.val() && snapshot.val().apptOne) || '';
+            self.setState({
+                username: username,
+                user: user
+            });
+            // console.log(username);
+            // console.log(user);
+            // console.log(self.state.email);
+            console.log(apptOne);
+        });
+    }
 
     displayCalendarOne = (userId) => {
         this.setState({
@@ -96,7 +142,22 @@ class AccountPage extends Component {
             firstBooked: true,
             firstBooking: appt
         });
+
+        firebase.database().ref('users/' + this.state.userID).update({
+            apptOne: appt.bookingDate,
+            coach: appt.coachID,
+            email: this.state.email,
+            name: this.state.username,
+            user: this.state.user,
+        }, function (error) {
+            if (error) {
+                // The write failed...
+            } else {
+                // Data saved successfully!
+            }
+        });
     }
+
 
     scheduleSessionTwo = () => {
         let appt = {
@@ -187,7 +248,8 @@ class AccountPage extends Component {
                                 <div className="row">
                                     <div className="col">
                                         <h2 className="text-left mb-3 account-page">
-                                            <strong><i>my account </i></strong>
+                                            <strong><i>{this.state.username}</i></strong>
+                                            <strong className="float-right">client account</strong>
                                         </h2>
                                     </div>
                                 </div>
