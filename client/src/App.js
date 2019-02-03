@@ -5,7 +5,8 @@ import { withAuthentication } from './components/Session';
 import Home from "./pages/Home";
 import ClientSurvey from "./pages/ClientSurvey";
 import CoachSurvey from "./pages/CoachSurvey";
-import AccountPage from "./pages/AccountPage";
+import ClientAccountPage from "./pages/ClientAccountPage";
+import CoachAccountPage from "./pages/CoachAccountPage";
 import NoMatch from "./pages/NoMatch";
 import Conference from "./pages/Conference";
 import Nav from "./components/Nav";
@@ -26,7 +27,8 @@ class App extends Component {
               <Route exact path={ROUTES.SIGN_IN} component={SignInPage} />
               <Route exact path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
               <Route exact path={ROUTES.HOME} component={Home} />
-              <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
+              <Route exact path={ROUTES.CLIENTACCOUNT} component={ClientAccountPage} />
+              <Route exact path={ROUTES.COACHACCOUNT} component={CoachAccountPage} />
               <Route exact path={ROUTES.ADMIN} component={AdminPage} />
               <Route exact path={ROUTES.CLIENTSURVEY} component={ClientSurvey} />
               <Route exact path={ROUTES.COACHSURVEY} component={CoachSurvey} />

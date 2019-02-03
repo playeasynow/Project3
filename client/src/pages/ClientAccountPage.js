@@ -33,6 +33,30 @@ class AccountPage extends Component {
         };
     }
 
+    getMatches = () => {
+        let userObj = [{
+            _id: "abxcsw",
+            name: "Trisha Wheeler",
+            coachingTypes: ["Personal Coaching", "Entrepreneurial Coaching"],
+            confirmedEmail: "twheeler@gmail.com"
+        },
+        {
+            _id: "abxzsw",
+            name: "Brandon Lopez",
+            coachingTypes: ["Personal Coaching", "Entrepreneurial Coaching"],
+            confirmedEmail: "blopez@gmail.com"
+        },
+        {
+            _id: "abxcsc",
+            name: "May West",
+            coachingTypes: ["Personal Coaching"],
+            confirmedEmail: "mwest@gmail.com"
+        },];
+        this.setState({
+            matches: userObj,
+        });
+    };
+
     componentDidMount() {
         this.getMatches();
     };
@@ -58,30 +82,6 @@ class AccountPage extends Component {
             displayCalendarThree: !this.state.displayCalendarThree,
             date: new Date(),
             thirdCoach: userId
-        });
-    };
-
-    getMatches = () => {
-        let userObj = [{
-            _id: "abxcsw",
-            name: "Trisha Wheeler",
-            coachingTypes: ["Personal Coaching", "Entrepreneurial Coaching"],
-            confirmedEmail: "twheeler@gmail.com"
-        },
-        {
-            _id: "abxzsw",
-            name: "Brandon Lopez",
-            coachingTypes: ["Personal Coaching", "Entrepreneurial Coaching"],
-            confirmedEmail: "blopez@gmail.com"
-        },
-        {
-            _id: "abxcsc",
-            name: "May West",
-            coachingTypes: ["Personal Coaching"],
-            confirmedEmail: "mwest@gmail.com"
-        },];
-        this.setState({
-            matches: userObj,
         });
     };
 
@@ -189,9 +189,6 @@ class AccountPage extends Component {
                                         <h2 className="text-left mb-3 account-page">
                                             <strong><i>my account </i></strong>
                                         </h2>
-                                        {/* <AuthUserContext.Consumer>
-                                            {authUser => authUser ? console.log(authUser) : "hello"}
-                                        </AuthUserContext.Consumer> */}
                                     </div>
                                 </div>
                                 <div className="row">

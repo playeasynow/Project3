@@ -54,7 +54,7 @@ class Forms extends Component {
                                 <div className="row">
                                     <div className="col">
                                         <h4 className="text-left mb-3">
-                                            <i>complete the form below, and then hit the gather matches button</i>
+                                            <i>complete the form below, and then head to your account</i>
                                         </h4>
                                         <Typeform />
                                     </div>
@@ -64,8 +64,8 @@ class Forms extends Component {
                                     <div className="col text-center">
                                         <Link
                                             className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
-                                            to="/account">
-                                            <div className="container"><p className="btn animated infinite pulse hvr-underline-from-center gather-matches-link" >gather matches</p></div>
+                                            to="/coachaccount">
+                                            <div className="container"><p className="btn animated infinite pulse hvr-underline-from-center gather-matches-link" >go to account</p></div>
                                         </Link>
                                     </div>
                                 </div>
