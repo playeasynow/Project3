@@ -37,7 +37,7 @@ class AccountPage extends Component {
         };
     }
 
-    getMatches = () => {
+    getMatches = (email) => {
         // let email = this.state.email;
 
         // axios.get('https://project3-go-server.herokuapp.com/matches/'+ email)
@@ -79,7 +79,6 @@ class AccountPage extends Component {
     componentDidMount() {
         firebase.auth().onAuthStateChanged(userFB => {
             if (userFB) {
-                // console.log('This is the user: ', userFB)
                 this.setState({
                     userID: userFB.uid,
                     email: userFB.email
@@ -95,15 +94,36 @@ class AccountPage extends Component {
         firebase.database().ref('/users/' + userFBuid).once('value').then(function (snapshot) {
             const username = (snapshot.val() && snapshot.val().name) || 'Anonymous';
             const user = (snapshot.val() && snapshot.val().user) || 'Anonymous';
-            const apptOne = (snapshot.val() && snapshot.val().apptOne) || '';
+            const apptOneDay = (snapshot.val() && snapshot.val().apptOneDay) || '';
+            const apptOneTime = (snapshot.val() && snapshot.val().apptOneTime) || '';
+            const coachID = (snapshot.val() && snapshot.val().coachID) || '';
+
+            let appt = {
+                coachID: coachID,
+                bookingDay: apptOneDay,
+                bookingTime: apptOneTime
+            }
+
             self.setState({
                 username: username,
-                user: user
+                user: user,
+                firstBooking: appt
             });
+
+            if (apptOneDay === "") {
+                self.setState({
+                    firstBooked: false
+                })
+            } else {
+                self.setState({
+                    firstBooked: true
+                })
+            }
             // console.log(username);
             // console.log(user);
             // console.log(self.state.email);
-            console.log(apptOne);
+            // console.log(apptOneDay);
+            // console.log(apptOneTime);
         });
     }
 
@@ -134,7 +154,8 @@ class AccountPage extends Component {
     scheduleSessionOne = () => {
         let appt = {
             coachID: this.state.firstCoach,
-            bookingDate: this.state.date
+            bookingDay: this.state.date.toDateString(),
+            bookingTime: this.state.date.toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" })
         };
 
         this.setState({
@@ -142,9 +163,12 @@ class AccountPage extends Component {
             firstBooked: true,
             firstBooking: appt
         });
+        console.log(appt.bookingDay);
+        console.log(appt.bookingTime);
 
         firebase.database().ref('users/' + this.state.userID).update({
-            apptOne: appt.bookingDate,
+            apptOneDay: appt.bookingDay,
+            apptOneTime: appt.bookingTime,
             coach: appt.coachID,
             email: this.state.email,
             name: this.state.username,
@@ -221,7 +245,7 @@ class AccountPage extends Component {
         let apptOne = null;
         if (this.state.firstBooked) {
             apptOne = (
-                <div className="container text-center appt-style text-white">You booked:<br></br> <span className="appt-text">{this.state.firstBooking.bookingDate.toDateString()} <br></br>{this.state.firstBooking.bookingDate.toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" })}</span> </div>
+                <div className="container text-center appt-style text-white">You booked:<br></br> <span className="appt-text">{this.state.firstBooking.bookingDay} <br></br>{this.state.firstBooking.bookingTime}</span> </div>
             )
         };
 
