@@ -11,7 +11,7 @@ Guru Match also offers scheduling services to clients to keep all appointments i
 
 # User Guide
 <img src="./images/guru-match-screenshot.png" 
-alt="image of guru match site" width="400"/></a>
+alt="image of guru match site" width="900"/></a>
 
 Here's how it works:
 
