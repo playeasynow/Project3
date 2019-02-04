@@ -52,21 +52,21 @@ class AccountPage extends Component {
 
         let userObj = [{
             _id: "abxcsw",
-            name: "Trisha Wheeler",
-            coachingTypes: ["Personal Coaching", "Entrepreneurial Coaching"],
-            confirmedEmail: "twheeler@gmail.com"
+            name: "Ronan Bridges",
+            coachingTypes: ["Entrepreneurial Coaching", "Fitness and Wellness Coaching"],
+            confirmedEmail: "ronan@gmail.com"
         },
         {
             _id: "abxzsw",
-            name: "Brandon Lopez",
+            name: "Marissa Tamlyn",
             coachingTypes: ["Personal Coaching", "Entrepreneurial Coaching"],
-            confirmedEmail: "blopez@gmail.com"
+            confirmedEmail: "marissa@gmail.com"
         },
         {
             _id: "abxcsc",
-            name: "May West",
-            coachingTypes: ["Personal Coaching"],
-            confirmedEmail: "mwest@gmail.com"
+            name: "Sonia Taylor",
+            coachingTypes: ["Personal Coaching", "Entrepreneurial Coaching"],
+            confirmedEmail: "sonia@gmail.com"
         },];
         this.setState({
             matches: userObj,
