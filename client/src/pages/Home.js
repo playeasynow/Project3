@@ -80,7 +80,7 @@ class Home extends Component {
                       </div>
 
                       <div className="card">
-                        <i className="fas fa-rocket iconic"></i>
+                        <i className="fas fa-rocket iconic animated infinite bounce rocket"></i>
                         <div className="card-body">
                           <p className="card-text">Personal Life <br></br>Coaching</p>
                           <p className="card-subtext">Life coaching starts with the foundations and strives
