@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function Card({ icon, title, children }) {
+function Card({ title, children }) {
     return(
         <div className="card mt-4">
             <div className="card-header coach-header">

@@ -34,6 +34,11 @@ class SignUpFormBase extends Component {
     onSubmit = event => {
         const { name, email, user, passwordOne } = this.state;
 
+        // const apptOne = "";
+        // const apptTwo = "";
+        // const apptThree = "";
+        // const coach = "";
+
         this.props.firebase
             .doCreateUserWithEmailAndPassword(email, passwordOne)
             .then(authUser => {
@@ -43,7 +48,11 @@ class SignUpFormBase extends Component {
                     .set({
                         name,
                         email,
-                        user
+                        user,
+                        // apptOne,
+                        // apptTwo,
+                        // apptThree,
+                        // coach
                     });
             })
             .then(() => {

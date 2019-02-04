@@ -31,6 +31,11 @@
     font-family: 'Oswald', sans-serif;
 }
 
+.reset-box {
+    border: 3px solid black;
+    padding: 1rem;
+}
+
 .headline {
     font-family: 'Lobster', cursive;
     color: darkcyan;
@@ -243,6 +248,14 @@
     animation-delay: 4s;
   }
 
+  .row-border {
+    border-bottom: 1px solid rgba(0,0,0,.125)
+  }
+
+  .name-cyan {
+      color: darkcyan;
+      font-size: 2.5rem;
+  }
   .usertwo {
     animation-duration: 6s;
     animation-delay: 5s;
