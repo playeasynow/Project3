@@ -334,8 +334,8 @@ class AccountPage extends Component {
                                 <div className="row">
                                     <div className="col">
                                         <h2 className="text-left mb-3 account-page">
-                                            <strong><i>{this.state.username}</i></strong>
-                                            <strong className="float-right">client account</strong>
+                                        <strong><i className="name-cyan">{this.state.username.toLowerCase()}</i></strong>
+                                            <strong className="float-right pt-1">client account</strong>
                                         </h2>
                                     </div>
                                 </div>

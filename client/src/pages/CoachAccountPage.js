@@ -53,22 +53,22 @@ class AccountPage extends Component {
         // });      
 
         let userObj = [{
-            _id: "abxcsw",
-            name: "Trisha Wheeler",
-            coachingTypes: ["Personal Coaching", "Entrepreneurial Coaching"],
-            confirmedEmail: "twheeler@gmail.com"
+            _id: "adwdla",
+            name: "Amir Kashi",
+            coachingTypes: ["Personal Coaching"],
+            confirmedEmail: "akashi@gmail.com"
         },
         {
             _id: "abxzsw",
-            name: "Brandon Lopez",
-            coachingTypes: ["Personal Coaching", "Entrepreneurial Coaching"],
-            confirmedEmail: "blopez@gmail.com"
+            name: "Susan Anthony",
+            coachingTypes: ["Entrepreneurial Coaching"],
+            confirmedEmail: "santhony@me.com"
         },
         {
             _id: "abxcsc",
-            name: "May West",
-            coachingTypes: ["Personal Coaching"],
-            confirmedEmail: "mwest@gmail.com"
+            name: "Charles Labrynth",
+            coachingTypes: ["Fitness Coaching"],
+            confirmedEmail: "clabrynth@gmail.com"
         }];
 
         this.setState({
@@ -85,7 +85,7 @@ class AccountPage extends Component {
                     email: userFB.email
                 });
                 this.searchFirebase(userFB.uid);
-                this.getMatches(userFB.email); 
+                this.getMatches(userFB.email);
             }
         });
     };
@@ -98,7 +98,7 @@ class AccountPage extends Component {
             self.setState({
                 username: username,
                 user: user
-              });
+            });
             console.log(username);
             console.log(user);
             console.log(self.state.email);
@@ -232,8 +232,8 @@ class AccountPage extends Component {
                                 <div className="row">
                                     <div className="col">
                                         <h2 className="text-left mb-3 account-page">
-                                            <strong><i>{this.state.username}</i></strong>
-                                            <strong className="float-right">coach account</strong>
+                                            <strong><i className="name-cyan">{this.state.username.toLowerCase()}</i></strong>
+                                            <strong className="float-right pt-1">coach account</strong>
                                         </h2>
                                     </div>
                                 </div>
@@ -252,7 +252,7 @@ class AccountPage extends Component {
                                                                 Button={() => (
                                                                     <button
                                                                         onClick={() => this.displayCalendarOne(this.state.matches[0]._id)}
-                                                                        className="btn hvr-underline-from-center"
+                                                                        className="btn text-white"
                                                                         key={this.state.matches[0]._id}
                                                                     >schedule intro session</button>
                                                                 )}
@@ -280,7 +280,7 @@ class AccountPage extends Component {
                                                                 Button={() => (
                                                                     <button
                                                                         onClick={() => this.displayCalendarTwo(this.state.matches[1]._id)}
-                                                                        className="btn hvr-underline-from-center"
+                                                                        className="btn text-white"
                                                                         key={this.state.matches[1]._id}
                                                                     >schedule intro session</button>
                                                                 )}
@@ -309,7 +309,7 @@ class AccountPage extends Component {
                                                                 Button={() => (
                                                                     <button
                                                                         onClick={() => this.displayCalendarThree(this.state.matches[2]._id)}
-                                                                        className="btn hvr-underline-from-center"
+                                                                        className="btn text-white"
                                                                         key={this.state.matches[2]._id}
                                                                     >schedule intro session</button>
                                                                 )}
@@ -334,12 +334,14 @@ class AccountPage extends Component {
                                         </Card>
                                     </div>
                                 </div>
-                                <div className="row">
-                                    <div className="col-8">
-                                        <h4 className="mt-4 oswald-font" >Forgot your password?</h4>
-                                        <PasswordForgetForm />
-                                        <h4 className="mt-4 oswald-font" >Set new password?</h4>
-                                        <PasswordChangeForm />
+                                <div className="row mt-5">
+                                    <div className="col">
+                                        <div className="container reset-box">
+                                            <h4 className="mt-1 oswald-font" >Forgot your password?</h4>
+                                            <PasswordForgetForm />
+                                            <h4 className="mt-4 oswald-font" >Set new password?</h4>
+                                            <PasswordChangeForm />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
