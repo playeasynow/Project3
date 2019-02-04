@@ -92,22 +92,43 @@ class AccountPage extends Component {
     searchFirebase(userFBuid) {
         var self = this;
         firebase.database().ref('/users/' + userFBuid).once('value').then(function (snapshot) {
-            const username = (snapshot.val() && snapshot.val().name) || 'Anonymous';
-            const user = (snapshot.val() && snapshot.val().user) || 'Anonymous';
+            const username = (snapshot.val() && snapshot.val().name) || '';
+            const user = (snapshot.val() && snapshot.val().user) || '';
             const apptOneDay = (snapshot.val() && snapshot.val().apptOneDay) || '';
             const apptOneTime = (snapshot.val() && snapshot.val().apptOneTime) || '';
-            const coachID = (snapshot.val() && snapshot.val().coachID) || '';
+            const apptTwoDay = (snapshot.val() && snapshot.val().apptTwoDay) || '';
+            const apptTwoTime = (snapshot.val() && snapshot.val().apptTwoTime) || '';
+            const apptThreeDay = (snapshot.val() && snapshot.val().apptThreeDay) || '';
+            const apptThreeTime = (snapshot.val() && snapshot.val().apptThreeTime) || '';
+            const coachOne = (snapshot.val() && snapshot.val().coachOne) || '';
+            const coachTwo = (snapshot.val() && snapshot.val().coachTwo) || '';
+            const coachThree = (snapshot.val() && snapshot.val().coachThree) || '';
 
-            let appt = {
-                coachID: coachID,
+
+            let apptOne = {
+                coachOne: coachOne,
                 bookingDay: apptOneDay,
                 bookingTime: apptOneTime
+            }
+
+            let apptTwo = {
+                coachTwo: coachTwo,
+                bookingDay: apptTwoDay,
+                bookingTime: apptTwoTime
+            }
+
+            let apptThree = {
+                coachThree: coachThree,
+                bookingDay: apptThreeDay,
+                bookingTime: apptThreeTime
             }
 
             self.setState({
                 username: username,
                 user: user,
-                firstBooking: appt
+                firstBooking: apptOne,
+                secondBooking: apptTwo,
+                thirdBooking: apptThree
             });
 
             if (apptOneDay === "") {
@@ -119,11 +140,26 @@ class AccountPage extends Component {
                     firstBooked: true
                 })
             }
-            // console.log(username);
-            // console.log(user);
-            // console.log(self.state.email);
-            // console.log(apptOneDay);
-            // console.log(apptOneTime);
+
+            if (apptTwoDay === "") {
+                self.setState({
+                    secondBooked: false
+                })
+            } else {
+                self.setState({
+                    secondBooked: true
+                })
+            }
+
+            if (apptThreeDay === "") {
+                self.setState({
+                    thirdBooked: false
+                })
+            } else {
+                self.setState({
+                    thirdBooked: true
+                })
+            }
         });
     }
 
@@ -152,8 +188,8 @@ class AccountPage extends Component {
     };
 
     scheduleSessionOne = () => {
-        let appt = {
-            coachID: this.state.firstCoach,
+        let apptOne = {
+            coachOne: this.state.firstCoach,
             bookingDay: this.state.date.toDateString(),
             bookingTime: this.state.date.toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" })
         };
@@ -161,15 +197,15 @@ class AccountPage extends Component {
         this.setState({
             displayCalendarOne: !this.state.displayCalendarOne,
             firstBooked: true,
-            firstBooking: appt
+            firstBooking: apptOne
         });
-        console.log(appt.bookingDay);
-        console.log(appt.bookingTime);
+        console.log(apptOne.bookingDay);
+        console.log(apptOne.bookingTime);
 
         firebase.database().ref('users/' + this.state.userID).update({
-            apptOneDay: appt.bookingDay,
-            apptOneTime: appt.bookingTime,
-            coach: appt.coachID,
+            apptOneDay: apptOne.bookingDay,
+            apptOneTime: apptOne.bookingTime,
+            coachOne: apptOne.coachOne,
             email: this.state.email,
             name: this.state.username,
             user: this.state.user,
@@ -184,28 +220,64 @@ class AccountPage extends Component {
 
 
     scheduleSessionTwo = () => {
-        let appt = {
-            coachID: this.state.secondCoach,
-            bookingDate: this.state.date
+        let apptTwo = {
+            coachTwo: this.state.secondCoach,
+            bookingDay: this.state.date.toDateString(),
+            bookingTime: this.state.date.toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" })
         };
 
         this.setState({
             displayCalendarTwo: !this.state.displayCalendarTwo,
             secondBooked: true,
-            secondBooking: appt
+            secondBooking: apptTwo
+        });
+        console.log(apptTwo.bookingDay);
+        console.log(apptTwo.bookingTime);
+
+        firebase.database().ref('users/' + this.state.userID).update({
+            apptTwoDay: apptTwo.bookingDay,
+            apptTwoTime: apptTwo.bookingTime,
+            coachTwo: apptTwo.coachTwo,
+            email: this.state.email,
+            name: this.state.username,
+            user: this.state.user,
+        }, function (error) {
+            if (error) {
+                // The write failed...
+            } else {
+                // Data saved successfully!
+            }
         });
     }
 
     scheduleSessionThree = () => {
-        let appt = {
-            coachID: this.state.thirdCoach,
-            bookingDate: this.state.date
+        let apptThree = {
+            coachThree: this.state.thirdCoach,
+            bookingDay: this.state.date.toDateString(),
+            bookingTime: this.state.date.toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" })
         };
 
         this.setState({
             displayCalendarThree: !this.state.displayCalendarThree,
             thirdBooked: true,
-            thirdBooking: appt
+            thirdBooking: apptThree
+        });
+        console.log(apptThree.bookingDay);
+        console.log(apptThree.bookingTime);
+
+        firebase.database().ref('users/' + this.state.userID).update({
+            apptThreeDay: apptThree.bookingDay,
+            apptThreeTime: apptThree.bookingTime,
+            coachThree: apptThree.coachThree,
+            email: this.state.email,
+            name: this.state.username,
+            user: this.state.user,
+        }, function (error) {
+            if (error) {
+                // The write failed...
+            } else {
+                // Data saved successfully!
+            }
         });
     }
 
@@ -252,14 +324,14 @@ class AccountPage extends Component {
         let apptTwo = null;
         if (this.state.secondBooked) {
             apptTwo = (
-                <div className="container text-center appt-style text-white">You booked:<br></br> <span className="appt-text">{this.state.secondBooking.bookingDate.toDateString()} <br></br>{this.state.secondBooking.bookingDate.toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" })}</span> </div>
+                <div className="container text-center appt-style text-white">You booked:<br></br> <span className="appt-text">{this.state.secondBooking.bookingDay} <br></br>{this.state.secondBooking.bookingTime}</span> </div>
             )
         };
 
         let apptThree = null;
         if (this.state.thirdBooked) {
             apptThree = (
-                <div className="container text-center appt-style text-white">You booked:<br></br> <span className="appt-text">{this.state.thirdBooking.bookingDate.toDateString()} <br></br>{this.state.thirdBooking.bookingDate.toLocaleTimeString('en-US', { hour12: true, hour: "numeric", minute: "numeric" })}</span> </div>
+                <div className="container text-center appt-style text-white">You booked:<br></br> <span className="appt-text">{this.state.thirdBooking.bookingDay} <br></br>{this.state.thirdBooking.bookingTime}</span> </div>
             )
         };
 
