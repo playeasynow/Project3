@@ -303,3 +303,8 @@
 .appt-text {
     font-size: 1.25rem;
 }
+
+.rocket {
+    animation-duration: 4s;
+    /* animation-delay: 2s; */
+}
