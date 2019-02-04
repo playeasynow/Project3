@@ -54,21 +54,21 @@ class AccountPage extends Component {
 
         let userObj = [{
             _id: "adwdla",
-            name: "Amir Kashi",
+            name: "Tori Gallegos",
             coachingTypes: ["Personal Coaching"],
-            confirmedEmail: "akashi@gmail.com"
+            confirmedEmail: "tori@gmail.com"
         },
         {
             _id: "abxzsw",
-            name: "Susan Anthony",
-            coachingTypes: ["Entrepreneurial Coaching"],
-            confirmedEmail: "santhony@me.com"
+            name: "Brendan McAllister",
+            coachingTypes: ["Entrepreneurial Coaching", "Fitness and Wellness Coaching"],
+            confirmedEmail: "brendan@gmail.com"
         },
         {
             _id: "abxcsc",
-            name: "Charles Labrynth",
-            coachingTypes: ["Fitness Coaching"],
-            confirmedEmail: "clabrynth@gmail.com"
+            name: "Lori Scultz",
+            coachingTypes: ["Personal Coaching", "Fitness Coaching"],
+            confirmedEmail: "lori@gmail.com"
         }];
 
         this.setState({
