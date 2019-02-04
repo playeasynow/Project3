@@ -31,6 +31,11 @@
     font-family: 'Oswald', sans-serif;
 }
 
+.reset-box {
+    border: 3px solid black;
+    padding: 1rem;
+}
+
 .headline {
     font-family: 'Lobster', cursive;
     color: darkcyan;
@@ -241,6 +246,10 @@
   .userone {
     animation-duration: 6s;
     animation-delay: 4s;
+  }
+
+  .row-border {
+    border-bottom: 1px solid rgba(0,0,0,.125)
   }
 
   .usertwo {

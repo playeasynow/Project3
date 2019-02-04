@@ -22,9 +22,6 @@ class AccountPage extends Component {
             displayCalendarTwo: false,
             displayCalendarThree: false,
             date: new Date(),
-            users: [],
-            authUser: null,
-            appointmentDates: [],
             firstCoach: "",
             secondCoach: "",
             thirdCoach: "",
@@ -103,7 +100,6 @@ class AccountPage extends Component {
             const coachOne = (snapshot.val() && snapshot.val().coachOne) || '';
             const coachTwo = (snapshot.val() && snapshot.val().coachTwo) || '';
             const coachThree = (snapshot.val() && snapshot.val().coachThree) || '';
-
 
             let apptOne = {
                 coachOne: coachOne,
@@ -199,8 +195,6 @@ class AccountPage extends Component {
             firstBooked: true,
             firstBooking: apptOne
         });
-        console.log(apptOne.bookingDay);
-        console.log(apptOne.bookingTime);
 
         firebase.database().ref('users/' + this.state.userID).update({
             apptOneDay: apptOne.bookingDay,
@@ -218,7 +212,6 @@ class AccountPage extends Component {
         });
     }
 
-
     scheduleSessionTwo = () => {
         let apptTwo = {
             coachTwo: this.state.secondCoach,
@@ -231,8 +224,6 @@ class AccountPage extends Component {
             secondBooked: true,
             secondBooking: apptTwo
         });
-        console.log(apptTwo.bookingDay);
-        console.log(apptTwo.bookingTime);
 
         firebase.database().ref('users/' + this.state.userID).update({
             apptTwoDay: apptTwo.bookingDay,
@@ -262,8 +253,6 @@ class AccountPage extends Component {
             thirdBooked: true,
             thirdBooking: apptThree
         });
-        console.log(apptThree.bookingDay);
-        console.log(apptThree.bookingTime);
 
         firebase.database().ref('users/' + this.state.userID).update({
             apptThreeDay: apptThree.bookingDay,
@@ -286,8 +275,10 @@ class AccountPage extends Component {
     }
 
     render() {
-
         let calendarOne = null;
+        let calendarTwo = null;
+        let calendarThree = null;
+
         if (this.state.displayCalendarOne) {
             calendarOne = (
                 <div>
@@ -296,7 +287,6 @@ class AccountPage extends Component {
             )
         };
 
-        let calendarTwo = null;
         if (this.state.displayCalendarTwo) {
             calendarTwo = (
                 <div>
@@ -305,7 +295,6 @@ class AccountPage extends Component {
             )
         };
 
-        let calendarThree = null;
         if (this.state.displayCalendarThree) {
             calendarThree = (
                 <div>
@@ -315,20 +304,21 @@ class AccountPage extends Component {
         };
 
         let apptOne = null;
+        let apptTwo = null;
+        let apptThree = null;
+
         if (this.state.firstBooked) {
             apptOne = (
                 <div className="container text-center appt-style text-white">You booked:<br></br> <span className="appt-text">{this.state.firstBooking.bookingDay} <br></br>{this.state.firstBooking.bookingTime}</span> </div>
             )
         };
 
-        let apptTwo = null;
         if (this.state.secondBooked) {
             apptTwo = (
                 <div className="container text-center appt-style text-white">You booked:<br></br> <span className="appt-text">{this.state.secondBooking.bookingDay} <br></br>{this.state.secondBooking.bookingTime}</span> </div>
             )
         };
 
-        let apptThree = null;
         if (this.state.thirdBooked) {
             apptThree = (
                 <div className="container text-center appt-style text-white">You booked:<br></br> <span className="appt-text">{this.state.thirdBooking.bookingDay} <br></br>{this.state.thirdBooking.bookingTime}</span> </div>
@@ -354,7 +344,7 @@ class AccountPage extends Component {
                                         <Card title="Your Matched Coaches">
                                             {this.state.matches.length ? (
                                                 <List>
-                                                    <div className="row">
+                                                    <div className="row row-border">
                                                         <div className="col-9">
                                                             <User
                                                                 key={this.state.matches[0]._id}
@@ -382,7 +372,7 @@ class AccountPage extends Component {
                                                             {calendarOne} {apptOne}
                                                         </div>
                                                     </div>
-                                                    <div className="row">
+                                                    <div className="row row-border">
                                                         <div className="col-9">
                                                             <User
                                                                 key={this.state.matches[1]._id}
@@ -411,7 +401,7 @@ class AccountPage extends Component {
                                                         </div>
                                                     </div>
 
-                                                    <div className="row">
+                                                    <div className="row row-border">
                                                         <div className="col-9">
                                                             <User
                                                                 key={this.state.matches[2]._id}
@@ -446,12 +436,14 @@ class AccountPage extends Component {
                                         </Card>
                                     </div>
                                 </div>
-                                <div className="row">
-                                    <div className="col-8">
-                                        <h4 className="mt-4 oswald-font" >Forgot your password?</h4>
-                                        <PasswordForgetForm />
-                                        <h4 className="mt-4 oswald-font" >Set new password?</h4>
-                                        <PasswordChangeForm />
+                                <div className="row mt-5">
+                                    <div className="col">
+                                        <div className="container reset-box">
+                                            <h4 className="mt-1 oswald-font" >Forgot your password?</h4>
+                                            <PasswordForgetForm />
+                                            <h4 className="mt-4 oswald-font" >Set new password?</h4>
+                                            <PasswordChangeForm />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
