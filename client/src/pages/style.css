@@ -59,7 +59,7 @@
     padding-right: 0;
 }
 
-#first-row {
+.first-row {
     background-color: #ffffff;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cdefs%3E%3Cfilter id='a' x='-200%25' y='-200%25' width='400%25' height='400%25'%3E%3CfeGaussianBlur in='SourceGraphic' stdDeviation='50'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='%2322736e'%3E%3Cpolygon points='-203 1800 -203 -900 397 450'/%3E%3Cpolygon points='1803 -900 1803 1800 1203 450'/%3E%3C/g%3E%3Cg fill='%2320b2aa' filter='url(%23a)'%3E%3Cpolygon points='-203 1581 -203 -681 300 450'/%3E%3Cpolygon points='1803 -681 1803 1581 1300 450'/%3E%3C/g%3E%3Cg fill='%231a3a37'%3E%3Cpolygon points='-203 1581 -203 -681 300 450'/%3E%3Cpolygon points='1803 -681 1803 1581 1300 450'/%3E%3C/g%3E%3Cg fill='%23000000'%3E%3Cpolygon points='-203 1356 -203 -456 200 450'/%3E%3Cpolygon points='1803 -456 1803 1356 1400 450'/%3E%3C/g%3E%3C/svg%3E");
     background-attachment: fixed;
@@ -159,7 +159,8 @@
   }
 
   .works-btn {
-      background-color: white;
+      background-color: transparent;
+      color: black;
   }
 
   /* Underline From Center */
@@ -307,4 +308,15 @@
 .rocket {
     animation-duration: 4s;
     /* animation-delay: 2s; */
+}
+
+@media only screen and (max-width: 830px) {
+    #first-row {
+        background-size: 100% 80%;
+    }
+
+    .jumbotron {
+        margin-top: 8%;
+        margin-left: 3%;
+    }
 }

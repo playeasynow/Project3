@@ -37,18 +37,22 @@ class AccountPage extends Component {
     getMatches = (email) => {
         // let email = this.state.email;
 
-        // axios.get('https://project3-go-server.herokuapp.com/matches/'+ email)
-        // .then(function (response) {
-        //   // handle success
-        //   console.log(response);
+        // axios.get('https://project3-go-server.herokuapp.com/matches/' + email, {
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
         // })
-        // .catch(function (error) {
-        //   // handle error
-        //   console.log(error);
-        // })
-        // .then(function () {
-        //   // always executed
-        // }); 
+        //     .then(function (response) {
+        //         // handle success
+        //         console.log(response);
+        //     })
+        //     .catch(function (error) {
+        //         // handle error
+        //         console.log(error);
+        //     })
+        //     .then(function () {
+        //         // always executed
+        //     });
 
         let userObj = [{
             _id: "abxcsw",
@@ -334,7 +338,7 @@ class AccountPage extends Component {
                                 <div className="row">
                                     <div className="col">
                                         <h2 className="text-left mb-3 account-page">
-                                        <strong><i className="name-cyan">{this.state.username.toLowerCase()}</i></strong>
+                                            <strong><i className="name-cyan">{this.state.username.toLowerCase()}</i></strong>
                                             <strong className="float-right pt-1">client account</strong>
                                         </h2>
                                     </div>

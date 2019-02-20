@@ -39,14 +39,14 @@ class Home extends Component {
       <Container>
         <Row>
           <Col size="md-12">
-            <div id="first-row">
-              <Jumbotron>
+            <div className="first-row" id="first-row">
+              <div className="jumbotron container oswald-font">
                 <h1 className="text-left mt-5 pt-3 text-center headline animated slideInDown first-headline" ref={(section) => { this.Top = section; }}>
                   <strong>find a coach today. for free.</strong>
                 </h1>
                 <h4 className="text-center">personal, business and fitness coaching</h4>
                 <div className="container"><p className="btn next-page animated infinite pulse hvr-underline-from-center works-btn" onClick={() => scrollToComponent(this.One, { offset: 0, align: 'top', duration: 300, ease: 'inQuad' })}>how it works</p></div>
-              </Jumbotron>
+              </div>
             </div>
           </Col>
         </Row>
@@ -114,7 +114,7 @@ class Home extends Component {
                     <div className="container mt-5 pl-5 pr-5">
                       <p className="coach-text">Everyone can benefit from working with someone. Finding the right coach just got easier with <i>guru match</i>. <br></br>Because
                       not all coaches are the same, our matching algorithm identifies coaches near you well suited to your needs. <br></br> After the
-                              introductory session, all sessions are in-person or virtual, per your preference.
+                                introductory session, all sessions are in-person or virtual, per your preference.
                       </p>
                     </div>
 
