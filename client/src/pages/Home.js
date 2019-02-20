@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import scrollToComponent from 'react-scroll-to-component';
-import Jumbotron from "../components/Jumbotron";
 import { Col, Row, Container } from "../components/Grid";
 import { Link } from "react-router-dom";
 import "./style.css";
