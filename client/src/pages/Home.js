@@ -58,7 +58,7 @@ class Home extends Component {
                 <div className="row content-row">
                   <div className="col">
 
-                    <div className="card-group pl-5 pr-5">
+                    <div className="card-group">
                       <div className="card">
                         <i className="fas fa-hands-helping iconic"></i>
                         <div className="card-body">

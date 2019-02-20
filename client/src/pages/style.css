@@ -332,4 +332,45 @@ body {
         margin-left: 30.5%;
         margin-right: auto;
     }
+
+    .border-box {
+        width: 90%;
+        padding-top: 1rem;
+    }
+
+    .second-headline {
+        font-size: 1.5rem;
+    }
+
+    .content-row {
+        margin-top: 1rem;
+    }
+
+    .card-group {
+        padding: 0;
+    }
+
+    .card-body {
+        padding: 0;
+    }
+
+    .iconic {
+        font-size: 2rem;
+    }
+    
+    .card-text {
+        font-size: 1rem;
+    }
+
+    .card-subtext {
+        font-size: .90rem;
+    }
+
+    .our-coaches {
+        margin-top: 0;
+    }
+
+    p {
+        margin-bottom: .5rem;
+    }
 }
