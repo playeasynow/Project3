@@ -14,7 +14,7 @@ class Forms extends Component {
                             <div className="container" id="survey-box">
                                 <div className="row">
                                     <div className="col">
-                                        <h4 className="text-left mb-3">
+                                        <h4 className="text-left mb-3 survey-text">
                                             <i>complete the form below, and then hit the gather matches button</i>
                                         </h4>
                                         <Typeform />
@@ -24,7 +24,7 @@ class Forms extends Component {
                                 <div className="row mt-3">
                                     <div className="col text-center">
                                         <Link
-                                            className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
+                                            className={window.location.pethname === "/" ? "nav-link active btn-bottom" : "nav-link btn-bottom"}
                                             to="/clientaccount">
                                             <div className="container">
                                             <p 
