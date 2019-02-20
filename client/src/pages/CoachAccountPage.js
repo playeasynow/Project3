@@ -229,7 +229,7 @@ class AccountPage extends Component {
                     <Col size="md-12">
                         <div className="container-fluid" id="dashboard-bg">
                             <div className="container" id="dashboard-box">
-                                <div className="row">
+                                <div className="row row-height-acct">
                                     <div className="col">
                                         <h2 className="text-left mb-3 account-page">
                                             <strong><i className="name-cyan">{this.state.username.toLowerCase()}</i></strong>
@@ -252,7 +252,7 @@ class AccountPage extends Component {
                                                                 Button={() => (
                                                                     <button
                                                                         onClick={() => this.displayCalendarOne(this.state.matches[0]._id)}
-                                                                        className="btn text-white"
+                                                                        className="btn"
                                                                         key={this.state.matches[0]._id}
                                                                     >schedule intro session</button>
                                                                 )}
@@ -280,7 +280,7 @@ class AccountPage extends Component {
                                                                 Button={() => (
                                                                     <button
                                                                         onClick={() => this.displayCalendarTwo(this.state.matches[1]._id)}
-                                                                        className="btn text-white"
+                                                                        className="btn"
                                                                         key={this.state.matches[1]._id}
                                                                     >schedule intro session</button>
                                                                 )}
@@ -309,7 +309,7 @@ class AccountPage extends Component {
                                                                 Button={() => (
                                                                     <button
                                                                         onClick={() => this.displayCalendarThree(this.state.matches[2]._id)}
-                                                                        className="btn text-white"
+                                                                        className="btn"
                                                                         key={this.state.matches[2]._id}
                                                                     >schedule intro session</button>
                                                                 )}

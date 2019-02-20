@@ -398,11 +398,7 @@ body {
     }
 
     #survey-box {
-        margin-top: 8.5rem;
-        padding: 2rem;
         width: 100%;
-        margin-bottom: 5rem;
-        height: 80vh;
     }
 
     .survey-text {
@@ -411,5 +407,17 @@ body {
 
     .typeform-widget {
         height: 30rem;
+    }
+
+    #dashboard-box {
+        width: 100%;
+    }
+
+    .account-page, .name-cyan {
+        font-size: 1.5rem;
+    }
+
+    .account-page {
+        height: 6rem;
     }
 }
