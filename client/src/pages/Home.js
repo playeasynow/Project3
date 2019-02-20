@@ -99,16 +99,16 @@ class Home extends Component {
         <Row>
           <Col size="md-12">
             <div id="third-row" className="container-fluid" ref={(section) => { this.Two = section; }}>
-              <div className="container border-box text-center">
+              <div className="container border-box text-center coach-box">
                 <h1 className="headline second-headline">professional coaches with diverse experience</h1>
                 <div className="row content-row">
                   <div className="col">
                     <div>
                       <i className="fas fa-user animated fadeOut infinite iconic pl-3 pr-3 userone"></i>
-                      <i className="fas fa-user animated fadeOut infinite iconic pl-3 pr-3 usertwo"></i>
-                      <i className="fas fa-user animated fadeOut infinite iconic pl-3 pr-3 userthree"></i>
-                      <i className="fas fa-user animated fadeOut infinite iconic pl-3 pr-3 userfour"></i>
-                      <i className="fas fa-user-check animated fadeIn infinite iconic pl-3 pr-3 userfive"></i>
+                      <i className="fas fa-user animated fadeOut infinite iconic pr-3 usertwo"></i>
+                      <i className="fas fa-user animated fadeOut infinite iconic pr-3 userthree"></i>
+                      <i className="fas fa-user animated fadeOut infinite iconic pr-3 userfour"></i>
+                      <i className="fas fa-user-check animated fadeIn infinite iconic pr-3 userfive"></i>
                     </div>
                     <div className="container mt-5 pl-5 pr-5">
                       <p className="coach-text">Everyone can benefit from working with someone. Finding the right coach just got easier with <i>guru match</i>. <br></br>Because
@@ -132,7 +132,7 @@ class Home extends Component {
                 <h1 className="headline second-headline text-center">tell us a little bit about yourself</h1>
                 <div className="row">
                   <div className="col">
-                    <div className="card-group mt-4 pl-5 pr-5 text-center">
+                    <div className="card-group mt-4 text-center">
                       <div className="card">
                         <div className="card-body">
                           <p className="card-text">Fill out a short <br></br>matching questionnaire</p>
@@ -165,7 +165,7 @@ class Home extends Component {
 
                   <div className="col text-center fourth-col">
                     <Link
-                      className={window.location.pethname === "/" ? "nav-link active" : "nav-link"}
+                      className={window.location.pethname === "/" ? "nav-link active btn-bottom" : "nav-link btn-bottom"}
                       to="/signup">
                       <div className="container"><p className="btn animated infinite pulse hvr-underline-from-center fourth-link">start the questionnaire</p></div>
                     </Link>

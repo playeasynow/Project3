@@ -8,7 +8,7 @@ import * as ROUTES from '../../constants/routes';
 
 const SignUpPage = () => (
     <div className="container-fluid" id="sign-up-bg">
-        <div className="container" id="sign-up-box">
+        <div className="container sign-up-box">
             <h1 className="lobster-font">create an account</h1><br></br>
             <SignUpForm />
         </div>
