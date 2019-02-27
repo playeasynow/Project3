@@ -36,7 +36,7 @@ class NavAuth extends Component {
         window.addEventListener("resize", this.updateWidth);
     }
 
-    componentWillUnMount() {
+    componentWillUnmount() {
         window.removeEventListener("resize", this.updateWidth);
     }
 
@@ -131,7 +131,7 @@ class NavNonAuth extends Component {
         window.addEventListener("resize", this.updateWidth);
     }
 
-    componentWillUnMount() {
+    componentWillUnmount() {
         window.removeEventListener("resize", this.updateWidth);
     }
 
