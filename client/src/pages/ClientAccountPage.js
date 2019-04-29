@@ -365,7 +365,7 @@ class AccountPage extends Component {
                                                                 Button2={() => (
                                                                     <a
                                                                         key={this.state.matches[0]._id}
-                                                                        href="https://playeasynow.github.io/video-chat/index.html#f8b84f"
+                                                                        href="https://www.ezequielcalderon.com/video-chat/#e8c2c7"
                                                                         className="btn hvr-underline-from-center"
                                                                         target="_blank"
                                                                         rel="noopener noreferrer"
@@ -393,7 +393,7 @@ class AccountPage extends Component {
                                                                 Button2={() => (
                                                                     <a
                                                                         key={this.state.matches[1]._id}
-                                                                        href="https://playeasynow.github.io/video-chat/index.html#f33d3c"
+                                                                        href="https://www.ezequielcalderon.com/video-chat/#556c86"
                                                                         className="btn hvr-underline-from-center"
                                                                         target="_blank"
                                                                         rel="noopener noreferrer"
@@ -422,7 +422,7 @@ class AccountPage extends Component {
                                                                 Button2={() => (
                                                                     <a
                                                                         key={this.state.matches[2]._id}
-                                                                        href="https://playeasynow.github.io/video-chat/index.html#fa179c"
+                                                                        href="https://www.ezequielcalderon.com/video-chat/#d1b656"
                                                                         className="btn hvr-underline-from-center"
                                                                         target="_blank"
                                                                         rel="noopener noreferrer"
